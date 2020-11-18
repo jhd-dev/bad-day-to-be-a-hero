@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hero : Creature {
 
-    private int boneValue;
+    int boneValue;
 
     void Start() {
         

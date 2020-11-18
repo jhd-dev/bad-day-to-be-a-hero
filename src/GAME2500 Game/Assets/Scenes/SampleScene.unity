@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d050ad54b9059914e95b0f906aa39f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 10
   maxAcceleration: 10
 --- !u!50 &407355965
 Rigidbody2D:
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 475038623}
   - component: {fileID: 475038624}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Minion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 905967183}
   - component: {fileID: 905967182}
   m_Layer: 0
-  m_Name: Monster (1)
+  m_Name: Minion (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

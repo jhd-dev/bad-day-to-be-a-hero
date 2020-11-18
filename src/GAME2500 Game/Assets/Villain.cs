@@ -8,14 +8,14 @@ public class Villain : Creature {
     public static Soul soul;
 
     protected bool isHost = false; // whether this is the currently controllable enemy
-    private const KeyCode swapHostKey = KeyCode.E; // the key to be pressed to switch hosts
+    const KeyCode swapHostKey = KeyCode.E; // the key to be pressed to switch hosts
 
     void Update() {
         if (isHost) {
             HandleMovementInput();
             HandleHostSwapInput();
         } else {
-            AIStuff();
+            // AI Stuff
         }
     }
 
