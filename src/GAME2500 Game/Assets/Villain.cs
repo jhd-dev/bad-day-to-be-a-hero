@@ -9,11 +9,13 @@ public class Villain : Creature {
 
     protected bool isHost = false; // whether this is the currently controllable enemy
     const KeyCode swapHostKey = KeyCode.E; // the key to be pressed to switch hosts
+    const KeyCode attackKey = KeyCode.Space; // the key to be pressed to switch hosts
 
     void Update() {
         if (isHost) {
             HandleMovementInput();
             HandleHostSwapInput();
+            HandleAttackInput();
         } else {
             // AI Stuff
         }
@@ -58,11 +60,18 @@ public class Villain : Creature {
         SwapToHost(villains[villains.Count - 1]);
     }
 
-    List<Villain> GetVillainsByDistance(){
+    List<Villain> GetVillainsByDistance() {
         List<Villain> villains = GameObject.FindObjectsOfType<Villain>().ToList<Villain>();
         List<Villain> closest = villains.OrderBy(
             v => Vector2.Distance(this.transform.position, v.transform.position)
         ).ToList();
         return closest;
     }
+
+    void HandleAttackInput() {
+        if (Input.GetKeyDown(attackKey)) {
+            attack.Attempt();
+        }
+    }
+
 }

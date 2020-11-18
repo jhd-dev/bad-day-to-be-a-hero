@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Attack : MonoBehaviour {
 
-    float cooldown; // in seconds
+    public float cooldown; // in seconds
     float cooldownRemaining; // in seconds
 
     void Awake() {
@@ -24,4 +24,4 @@ public abstract class Attack : MonoBehaviour {
 
     protected abstract void Execute();
 
-}
+};

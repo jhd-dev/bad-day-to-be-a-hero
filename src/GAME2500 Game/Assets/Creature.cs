@@ -7,8 +7,9 @@ public class Creature : MonoBehaviour {
     public int health;
     public float maxAcceleration;
 
+    public Attack attack;
+
     Rigidbody2D rb2d;
-    Attack attack;
 
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
@@ -29,7 +30,5 @@ public class Creature : MonoBehaviour {
     }
 
     protected virtual void Die() {}
-
-    protected virtual void Attack() {}
 
 }
