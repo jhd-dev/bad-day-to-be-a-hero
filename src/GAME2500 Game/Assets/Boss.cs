@@ -9,9 +9,7 @@ public class Boss : Villain {
     void Start() {
         //Villain.boss = this;
         if (Villain.soul != null) {
-            Debug.Log(soul);
             Villain.soul.SetHost(this);
-            Debug.Log(isHost);
         }
     }
 

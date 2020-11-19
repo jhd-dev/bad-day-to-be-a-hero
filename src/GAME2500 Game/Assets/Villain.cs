@@ -35,6 +35,14 @@ public class Villain : Creature {
         base.Die();
     }
 
+    protected virtual void HandleAttackInput() {
+        if (Input.GetKeyDown(attackKey)) {
+            Vector2 mouseScreenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
+            attack.Attempt(this, mouseWorldPosition);
+        }
+    }
+
     void HandleMovementInput() {
         float xInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
@@ -43,7 +51,6 @@ public class Villain : Creature {
 
     void HandleHostSwapInput() {
         if (soul != null && !soul.DidChangeHost() && Input.GetKeyDown(swapHostKey)) {
-            Debug.Log("E");
             SwapToNextHost();
         }
     }
@@ -66,12 +73,6 @@ public class Villain : Creature {
             v => Vector2.Distance(this.transform.position, v.transform.position)
         ).ToList();
         return closest;
-    }
-
-    void HandleAttackInput() {
-        if (Input.GetKeyDown(attackKey)) {
-            attack.Attempt();
-        }
     }
 
 }

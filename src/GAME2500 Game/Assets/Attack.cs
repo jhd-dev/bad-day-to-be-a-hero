@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Attack : MonoBehaviour {
 
+    public bool isEvil;
     public float cooldown; // in seconds
     float cooldownRemaining; // in seconds
 
@@ -15,13 +16,13 @@ public abstract class Attack : MonoBehaviour {
         cooldownRemaining -= Time.deltaTime;
     }
 
-    public void Attempt() {
+    public void Attempt(Creature attacker, Vector2 target) {
         if (cooldownRemaining <= 0){
             cooldownRemaining = cooldown;
-            Execute();
+            Execute(attacker, target);
         }
     }
 
-    protected abstract void Execute();
+    protected abstract void Execute(Creature attacker, Vector2 target);
 
 };
