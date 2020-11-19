@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Minion
   - Boss
+  - HealthBar
   layers:
   - Default
   - TransparentFX

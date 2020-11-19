@@ -20,25 +20,28 @@ public class HealthBarScript : MonoBehaviour
         // get the health of the given minion
         health = minion.GetComponent<Creature>().health;
 
+        initialHealth = (float)health;
+
         // get the health bar object
-        healthBar = transform.Find("Bar").gameObject;
+        healthBar = transform.GetChild(0).transform.Find("Bar").gameObject;
+
 
         //get image of enemy
-        sprite = transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite;
+        sprite = minion.transform.Find("Sprite").gameObject.GetComponent<SpriteRenderer>().sprite;
         //set image
-        transform.Find("Enemy Image").gameObject.GetComponent<Image>().sprite = sprite;
+        transform.GetChild(1).transform.Find("CircleMask").transform.Find("Enemy Image").gameObject.GetComponent<Image>().sprite = sprite;
     }
 
     void setHealthBar()
     {
-        healthBar.transform.localScale = new Vector3((health / initialHealth), healthBar.transform.localScale.y, 0f);
+        healthBar.GetComponent<Transform>().localScale = new Vector3((health / initialHealth), 1f, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
         //update health
-        health = minion.GetComponent<Creature>().health;
+        health = (float)minion.GetComponent<Creature>().health;
 
         //correct bar
         setHealthBar();
