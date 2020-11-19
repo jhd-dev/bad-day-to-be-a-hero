@@ -814,11 +814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1428704994532740699, guid: 9c5688a08a857744b98b32f99c2f9016, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.88
+      value: -6.72
       objectReference: {fileID: 0}
     - target: {fileID: 1428704994532740699, guid: 9c5688a08a857744b98b32f99c2f9016, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.86
+      value: -0.62
       objectReference: {fileID: 0}
     - target: {fileID: 1428704994532740699, guid: 9c5688a08a857744b98b32f99c2f9016, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1108,6 +1108,10 @@ PrefabInstance:
     - target: {fileID: 630092005991842762, guid: 67db49ab0b379b245924296722eafd76, type: 3}
       propertyPath: m_Name
       value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546157327288264810, guid: 67db49ab0b379b245924296722eafd76, type: 3}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2546157327288264810, guid: 67db49ab0b379b245924296722eafd76, type: 3}
       propertyPath: m_Constraints

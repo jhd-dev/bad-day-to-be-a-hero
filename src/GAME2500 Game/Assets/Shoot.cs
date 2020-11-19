@@ -8,7 +8,7 @@ public class Shoot : Attack {
 
     protected override void Execute() {
         Projectile p = Instantiate(projectile, transform.position, transform.rotation) as Projectile;
-        p.Launch(new Vector2());
+        p.Launch(new Vector2(1, 1));
     }
 
 }
