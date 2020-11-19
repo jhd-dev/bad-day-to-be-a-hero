@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Shoot : Attack {
 
-    public GameObject projectile;
+    public Projectile projectile;
 
     protected override void Execute() {
-        Instantiate(projectile, transform.position, transform.rotation);
+        Projectile p = Instantiate(projectile, transform.position, transform.rotation) as Projectile;
+        p.Launch(new Vector2());
     }
 
 }

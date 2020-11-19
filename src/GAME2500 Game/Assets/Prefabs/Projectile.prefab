@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02738560200e6f4da5f938b58ffe22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagesHeroes: 0
+  damagesVillains: 0
+  piercable: 2147483647
+  launchSpeed: 30
+  lifespan: 5
 --- !u!50 &2546157327288264810
 Rigidbody2D:
   serializedVersion: 4
@@ -65,7 +70,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &3829404304425252855
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
