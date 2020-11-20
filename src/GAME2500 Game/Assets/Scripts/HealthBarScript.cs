@@ -18,7 +18,7 @@ public class HealthBarScript : MonoBehaviour
     void Start()
     {
         // get the health of the given minion
-        health = minion.GetComponent<Creature>().health;
+        health = (float)minion.GetComponent<Creature>().health;
 
         initialHealth = (float)health;
 
