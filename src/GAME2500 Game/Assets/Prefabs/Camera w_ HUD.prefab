@@ -316,7 +316,6 @@ GameObject:
   - component: {fileID: 2521393116678417699}
   - component: {fileID: 2521393116678417696}
   - component: {fileID: 2521393116678417700}
-  - component: {fileID: 8194720335869857493}
   m_Layer: 0
   m_Name: Camera w_ HUD
   m_TagString: MainCamera
@@ -332,7 +331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2521393116678417697}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2521393117684440696}
@@ -421,23 +420,6 @@ MonoBehaviour:
   shop: {fileID: 5473495477672522721}
   bones: {fileID: 2521393115813425986}
   boneCount: 0
---- !u!114 &8194720335869857493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2521393116678417697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88d3f978e595433798cca9f9e2f6ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultHorizSpeed: 6
-  defaultVertSpeed: 6
-  minimumZoomLevel: -1
-  maximumZoomLevel: 3
-  zoomSpeed: 1
 --- !u!1 &2521393117088594320
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +656,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2521393117684440697}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2521393115813425987}
@@ -857,7 +839,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5473495477672522721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4381023649940529073}
@@ -1722,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2995931452025099777, guid: 5fa313e567a566b40a989c69025620f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2995931452025099777, guid: 5fa313e567a566b40a989c69025620f4, type: 3}
       propertyPath: m_LocalRotation.w
