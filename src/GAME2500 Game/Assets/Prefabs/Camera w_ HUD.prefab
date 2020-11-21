@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 2521393116678417699}
   - component: {fileID: 2521393116678417696}
   - component: {fileID: 2521393116678417700}
+  - component: {fileID: 8194720335869857493}
   m_Layer: 0
   m_Name: Camera w_ HUD
   m_TagString: MainCamera
@@ -420,6 +421,23 @@ MonoBehaviour:
   shop: {fileID: 5473495477672522721}
   bones: {fileID: 2521393115813425986}
   boneCount: 0
+--- !u!114 &8194720335869857493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521393116678417697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d3f978e595433798cca9f9e2f6ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultHorizSpeed: 6
+  defaultVertSpeed: 6
+  minimumZoomLevel: -1
+  maximumZoomLevel: 3
+  zoomSpeed: 1
 --- !u!1 &2521393117088594320
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +894,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &5473495477672522723
 MonoBehaviour:
