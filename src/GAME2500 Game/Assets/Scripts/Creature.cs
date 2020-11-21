@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour {
 
-    public int health;
+    public int maxHealth;
+    public int health { get; private set; }
     public float maxAcceleration;
 
     public Attack attack;
@@ -15,12 +16,6 @@ public class Creature : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    void Update() {
-        if (health <= 0) {
-            Die();
-        }
-    }
-
     public void Run(Vector2 target) {
         if (rb2d == null) {
             rb2d = GetComponent<Rigidbody2D>();
@@ -29,6 +24,18 @@ public class Creature : MonoBehaviour {
         rb2d.AddForce(accelerationDirection * maxAcceleration);
     }
 
-    protected virtual void Die() {}
+    public virtual void TakeDamage(int damage, bool directHit = true) { // damage: the amount of damage; directHit: whether the damage is from an attack, or else something different (i.e. poison or an AoE)
+        if (directHit) {
+            // play sound? visual effect?
+        }
+        health -= damage;
+        if (health <= 0) {
+            Die();
+        }
+    }
+
+    protected virtual void Die() {
+        Destroy(this.gameObject, 1);
+    }
 
 }

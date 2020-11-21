@@ -16,5 +16,6 @@ public class Hero : Creature {
 
     protected override void Die() {
         // TODO: drop bones
+        base.Die();
     }
 }
