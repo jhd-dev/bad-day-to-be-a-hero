@@ -11,6 +11,7 @@ public class OverheadControl : MonoBehaviour
         OnMinion
     }
 
+    //Serialized Attributes
     Camera cam;
     [Header("Pivoting")]
     [SerializeField] float defaultHorizSpeed;
@@ -19,8 +20,11 @@ public class OverheadControl : MonoBehaviour
     [SerializeField] int minimumZoomLevel;
     [SerializeField] int maximumZoomLevel;
     [SerializeField] float zoomSpeed;
+
+    // Other Attributes
     float actualHorizSpeed;
     float actualVertSpeed;
+    float defaultZoom;
     int zoomLevel = 0;
     bool inZoomSequence;
     GameObject[] minions;
@@ -29,11 +33,12 @@ public class OverheadControl : MonoBehaviour
     {
         minions = GameObject.FindGameObjectsWithTag("Minion");
         cam = GetComponent<Camera>();
+        defaultZoom = cam.orthographicSize;
     }
 
     void LateUpdate()
     {
-        Pivot();
+        if (!inZoomSequence) Pivot();
         ConsiderPossession();
         ConsiderZoom();
     }
@@ -49,33 +54,10 @@ public class OverheadControl : MonoBehaviour
 
     void ConsiderPossession()
     {
-        GameObject minion = GetClosestMinion();
-
-        if (Input.GetKeyDown(KeyCode.Space) )
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine("Zoom", ZoomType.OnMinion);
         }
-    }
-
-    GameObject GetClosestMinion()
-    {
-        Vector2 midScreen = new Vector2(Screen.width / 2, Screen.height / 2);
-        float minDistance = 99999;
-        int closestIndex = 0;
-
-        for (int i = 0; i < minions.Length; i++)
-        {
-            Vector2 minionPos = cam.WorldToScreenPoint(minions[i].transform.position);
-            float distance = Vector2.Distance(minionPos, midScreen);
-            print(distance);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                closestIndex = i;
-            }
-        }
-
-        return minions[closestIndex];
     }
 
     void ConsiderZoom()
@@ -97,6 +79,7 @@ public class OverheadControl : MonoBehaviour
 
         inZoomSequence = true;
         float goalZoom = cam.orthographicSize;
+        Vector3 goalPos = transform.position;
 
         switch (zoomType)
         {
@@ -123,19 +106,46 @@ public class OverheadControl : MonoBehaviour
                 }
                 break;
             default:
-                goalZoom = 4;
-                //todo: Something about zoomLevel
+                zoomLevel = 0;
+                goalZoom = defaultZoom;
+                goalPos = GetClosestMinion().transform.TransformPoint(Vector3.zero);
                 break;
         }
 
         //Animation
 
-        while (Mathf.Abs(cam.orthographicSize - goalZoom) > 0.5f)
+        bool reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalZoom) < 0.5f;
+        bool reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
+
+        while (!reachedGoalZoom || !reachedGoalPos)
         {
+            transform.position += (goalPos - transform.position) / (8 / zoomSpeed);
             cam.orthographicSize += (goalZoom - cam.orthographicSize) / (8 / zoomSpeed);
             yield return new WaitForSeconds(0.01f);
+            if (!reachedGoalZoom) reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalZoom) < 0.5f;
+            if (!reachedGoalPos) reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
         }
 
         inZoomSequence = false;
+    }
+
+    GameObject GetClosestMinion()
+    {
+        Vector2 midScreen = new Vector2(Screen.width / 2, Screen.height / 2);
+        float minDistance = 99999;
+        int closestIndex = 0;
+
+        for (int i = 0; i < minions.Length; i++)
+        {
+            Vector2 minionPos = cam.WorldToScreenPoint(minions[i].transform.position);
+            float distance = Vector2.Distance(minionPos, midScreen);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestIndex = i;
+            }
+        }
+
+        return minions[closestIndex];
     }
 }
