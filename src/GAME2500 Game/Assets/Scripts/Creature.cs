@@ -14,14 +14,18 @@ public class Creature : MonoBehaviour {
 
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
+        health = maxHealth;
     }
 
     public void Run(Vector2 target) {
         if (rb2d == null) {
             rb2d = GetComponent<Rigidbody2D>();
         }
-        Vector2 accelerationDirection = target;//.normalized;
-        rb2d.AddForce(accelerationDirection * maxAcceleration);
+
+        if (!ControlCenter.inCameraMode) {
+            Vector2 accelerationDirection = target;//.normalized;
+            rb2d.AddForce(accelerationDirection * maxAcceleration);
+        }
     }
 
     public virtual void TakeDamage(int damage, bool directHit = true) { // damage: the amount of damage; directHit: whether the damage is from an attack, or else something different (i.e. poison or an AoE)
@@ -37,5 +41,4 @@ public class Creature : MonoBehaviour {
     protected virtual void Die() {
         Destroy(this.gameObject, 1);
     }
-
 }

@@ -50,7 +50,7 @@ public class Villain : Creature {
     }
 
     void HandleHostSwapInput() {
-        if (soul != null && !soul.DidChangeHost() && Input.GetKeyDown(swapHostKey)) {
+        if (soul != null && !soul.DidChangeHost() && Input.GetKeyDown(swapHostKey) && !ControlCenter.inCameraMode) {
             SwapToNextHost();
         }
     }

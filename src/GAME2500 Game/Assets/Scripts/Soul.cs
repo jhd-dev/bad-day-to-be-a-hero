@@ -22,7 +22,7 @@ public class Soul : MonoBehaviour {
         SetHost(firstHost);
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (host != null) {
             float step = travelSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, host.transform.position, step);

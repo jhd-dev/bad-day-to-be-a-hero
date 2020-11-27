@@ -20,26 +20,32 @@ public class OverheadControl : MonoBehaviour
     [SerializeField] int minimumZoomLevel;
     [SerializeField] int maximumZoomLevel;
     [SerializeField] float zoomSpeed;
+    [Header("Switching")]
+    [SerializeField] Soul soul;
 
     // Other Attributes
+    GameObject[] minions;
     float actualHorizSpeed;
     float actualVertSpeed;
-    float defaultZoom;
+    float defaultOrthoSize;
     int zoomLevel = 0;
     bool inZoomSequence;
-    GameObject[] minions;
 
     void Start()
     {
         minions = GameObject.FindGameObjectsWithTag("Minion");
         cam = GetComponent<Camera>();
-        defaultZoom = cam.orthographicSize;
+        defaultOrthoSize = cam.orthographicSize;
     }
 
     void LateUpdate()
     {
-        if (!inZoomSequence) Pivot();
-        ConsiderPossession();
+        if (ControlCenter.inCameraMode)
+        {
+            if (!inZoomSequence) Pivot();
+            ConsiderPossession();
+        }
+
         ConsiderZoom();
     }
 
@@ -54,22 +60,21 @@ public class OverheadControl : MonoBehaviour
 
     void ConsiderPossession()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             StartCoroutine("Zoom", ZoomType.OnMinion);
         }
     }
 
     void ConsiderZoom()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && !inZoomSequence)
-        {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && !inZoomSequence) {
             StartCoroutine("Zoom", ZoomType.In);
+            ControlCenter.inCameraMode = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !inZoomSequence)
-        {
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !inZoomSequence) {
             StartCoroutine("Zoom", ZoomType.Out);
+            ControlCenter.inCameraMode = true;
         }
     }
 
@@ -78,55 +83,72 @@ public class OverheadControl : MonoBehaviour
         // Setup
 
         inZoomSequence = true;
-        float goalZoom = cam.orthographicSize;
-        Vector3 goalPos = transform.position;
+        float goalOrthoSize = GetGoalOrthoSize(zoomType);
+        Vector3 goalPos = GetGoalPos(zoomType);
 
-        switch (zoomType)
+        if (zoomType == ZoomType.OnMinion)
         {
-            case ZoomType.In:
-                if (zoomLevel != minimumZoomLevel)
-                {
-                    goalZoom = cam.orthographicSize / 2;
-                    zoomLevel--;
-                }
-                else
-                {
-                    StopCoroutine("Zoom");
-                }
-                break;
-            case ZoomType.Out:
-                if (zoomLevel != maximumZoomLevel)
-                {
-                    goalZoom = cam.orthographicSize * 2;
-                    zoomLevel++;
-                }
-                else
-                {
-                    StopCoroutine("Zoom");
-                }
-                break;
-            default:
-                zoomLevel = 0;
-                goalZoom = defaultZoom;
-                goalPos = GetClosestMinion().transform.TransformPoint(Vector3.zero);
-                break;
+            soul.SetHost(GetClosestMinion().GetComponent<Minion>());
         }
 
-        //Animation
+        // Animation
 
-        bool reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalZoom) < 0.5f;
+        bool reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalOrthoSize) < 0.5f;
         bool reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
 
         while (!reachedGoalZoom || !reachedGoalPos)
         {
             transform.position += (goalPos - transform.position) / (8 / zoomSpeed);
-            cam.orthographicSize += (goalZoom - cam.orthographicSize) / (8 / zoomSpeed);
+            cam.orthographicSize += (goalOrthoSize - cam.orthographicSize) / (8 / zoomSpeed);
             yield return new WaitForSeconds(0.01f);
-            if (!reachedGoalZoom) reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalZoom) < 0.5f;
+            if (!reachedGoalZoom) reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalOrthoSize) < 0.5f;
             if (!reachedGoalPos) reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
         }
 
+        if (zoomType == ZoomType.OnMinion)
+        {
+            transform.parent = soul.transform;
+            ControlCenter.inCameraMode = false;
+        }
+        else
+        {
+            transform.parent = null;
+        }
+
         inZoomSequence = false;
+    }
+
+    float GetGoalOrthoSize (ZoomType zoomType)
+    {
+        if (zoomType == ZoomType.In && zoomLevel != minimumZoomLevel)
+        {
+            zoomLevel--;
+            return cam.orthographicSize / 2;
+        }
+        else if (zoomType == ZoomType.Out && zoomLevel != maximumZoomLevel)
+        {
+            zoomLevel++;
+            return cam.orthographicSize * 2;
+        }
+        else if (zoomType == ZoomType.OnMinion)
+        {
+            zoomLevel = 0;
+            return defaultOrthoSize;
+        }
+
+        // If trying to go beyond the highest or lowest possible zoom
+        StopCoroutine("Zoom");
+        return cam.orthographicSize;
+    }
+
+    Vector3 GetGoalPos(ZoomType zoomType)
+    {
+        if (zoomType == ZoomType.OnMinion)
+        {
+            return GetClosestMinion().transform.TransformPoint(Vector3.zero);
+        }
+
+        return transform.position;
     }
 
     GameObject GetClosestMinion()
