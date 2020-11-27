@@ -51,6 +51,11 @@ public class Projectile : MonoBehaviour {
                 Destroy(this.gameObject, 1);
             }
         }
+
+        if (col != null && col.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void Launch(Vector2 direction, bool isEvil) {

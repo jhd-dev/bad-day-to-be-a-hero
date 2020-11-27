@@ -7,6 +7,8 @@ TagManager:
   - Minion
   - Boss
   - Hero
+  - HealthBar
+  - Wall
   layers:
   - Default
   - TransparentFX

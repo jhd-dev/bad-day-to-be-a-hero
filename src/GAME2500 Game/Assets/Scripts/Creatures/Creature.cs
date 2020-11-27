@@ -22,10 +22,8 @@ public class Creature : MonoBehaviour {
             rb2d = GetComponent<Rigidbody2D>();
         }
 
-        if (!ControlCenter.inCameraMode) {
-            Vector2 accelerationDirection = target;//.normalized;
-            rb2d.AddForce(accelerationDirection * maxAcceleration);
-        }
+        Vector2 accelerationDirection = target;//.normalized;
+        rb2d.AddForce(accelerationDirection * maxAcceleration);
     }
 
     public virtual void TakeDamage(int damage, bool directHit = true) { // damage: the amount of damage; directHit: whether the damage is from an attack, or else something different (i.e. poison or an AoE)
