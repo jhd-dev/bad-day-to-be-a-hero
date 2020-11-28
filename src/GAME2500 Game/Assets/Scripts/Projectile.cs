@@ -21,13 +21,12 @@ public class Projectile : MonoBehaviour {
     void Start() {
         piercableRemaining = piercable;
         lifespanRemaining = lifespan;
-        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update() {
         if (launched) {
             if (rb2d != null) {
-                rb2d.velocity = velocity;
+               // rb2d.velocity = velocity;
             }
             lifespanRemaining -= Time.deltaTime;
             if (lifespanRemaining <= 0) {
@@ -59,7 +58,10 @@ public class Projectile : MonoBehaviour {
     }
 
     public void Launch(Vector2 direction, bool isEvil) {
-        velocity = direction.normalized * launchSpeed;
+        if (rb2d == null) {
+            rb2d = GetComponent<Rigidbody2D>();
+        }
+        rb2d.velocity = direction.normalized * launchSpeed;
         launched = true;
         damagesHeroes = isEvil;
         damagesVillains = !isEvil;

@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Bone
   - Canvas
+  - Soul
   layers:
   - Default
   - TransparentFX

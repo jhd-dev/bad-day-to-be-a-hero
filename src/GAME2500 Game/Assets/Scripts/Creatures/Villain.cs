@@ -7,7 +7,7 @@ public class Villain : Creature {
 
     public static Soul soul;
 
-    protected bool isHost = false; // whether this is the currently controllable enemy
+    public bool isHost = false; // whether this is the currently controllable enemy
     const KeyCode swapHostKey = KeyCode.E; // the key to be pressed to switch hosts
     const KeyCode attackKey = KeyCode.Space; // the key to be pressed to attack
 

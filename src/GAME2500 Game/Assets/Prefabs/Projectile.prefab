@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagesHeroes: 1
   damagesVillains: 1
-  piercable: 2147483647
-  launchSpeed: 30
+  piercable: 1
+  launchSpeed: 15
   lifespan: 2.5
   power: 10
 --- !u!50 &2546157327288264810
@@ -68,7 +68,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 92fc3704423e847f9aca12da514bd59b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
