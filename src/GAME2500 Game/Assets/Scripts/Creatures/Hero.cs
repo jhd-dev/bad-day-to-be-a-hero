@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Hero : Creature {
 
-    int boneValue;
+    [SerializeField] int boneValue;
+    [SerializeField] GameObject bone;
 
     void Start() {
         
@@ -15,7 +16,13 @@ public class Hero : Creature {
     }
 
     protected override void Die() {
-        // TODO: drop bones
+        DropBones();
         base.Die();
+    }
+
+    void DropBones() {
+        for (int i = 0; i < boneValue; i++) {
+            Instantiate(bone, transform.position, Quaternion.Euler(0, 0, 0));
+        }
     }
 }

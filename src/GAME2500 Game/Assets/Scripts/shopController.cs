@@ -44,9 +44,9 @@ public class shopController : MonoBehaviour
 		bones.text = boneCount.ToString();
 
 		//just to test
-		if (Input.GetKey("space"))
+		/*if (Input.GetKey("space"))
 		{
 			boneCount += 10;
-		}
+		}*/
 	}
 }

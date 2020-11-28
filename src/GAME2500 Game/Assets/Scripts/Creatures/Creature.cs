@@ -37,6 +37,6 @@ public class Creature : MonoBehaviour {
     }
 
     protected virtual void Die() {
-        Destroy(this.gameObject, 1);
+        Destroy(this.gameObject, 0);
     }
 }

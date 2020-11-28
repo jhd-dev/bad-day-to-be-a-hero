@@ -9,6 +9,8 @@ TagManager:
   - Hero
   - HealthBar
   - Wall
+  - Bone
+  - Canvas
   layers:
   - Default
   - TransparentFX
