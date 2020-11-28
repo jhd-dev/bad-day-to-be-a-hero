@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour {
             collidedWith.Add(col.gameObject.GetInstanceID());
             piercableRemaining --;
             if (piercableRemaining < 0) {
-                Destroy(this.gameObject, 1);
+                Destroy(this.gameObject, 0);
             }
         }
 

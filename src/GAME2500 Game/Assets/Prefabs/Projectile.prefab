@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagesHeroes: 1
   damagesVillains: 1
-  piercable: 1
+  piercable: 0
   launchSpeed: 15
   lifespan: 2.5
   power: 10

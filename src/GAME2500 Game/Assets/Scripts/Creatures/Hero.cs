@@ -7,10 +7,6 @@ public class Hero : Creature {
     [SerializeField] int boneValue;
     [SerializeField] GameObject bone;
 
-    void Start() {
-        
-    }
-
     void Update() {
         //Run(Vector3.left);
     }

@@ -9,11 +9,15 @@ public class Creature : MonoBehaviour {
     public float maxAcceleration;
 
     public Attack attack;
+    public SpriteRenderer spriteRenderer;
 
     Rigidbody2D rb2d;
 
     void Start() {
-        rb2d = GetComponent<Rigidbody2D>();
+        if (GetComponent<Rigidbody2D>() != null) {
+            rb2d = GetComponent<Rigidbody2D>();
+        }
+        spriteRenderer = transform.Find("Sprite").gameObject.GetComponent<SpriteRenderer>();
         health = maxHealth;
     }
 
@@ -31,9 +35,17 @@ public class Creature : MonoBehaviour {
             // play sound? visual effect?
         }
         health -= damage;
+        StartCoroutine("AnimateDamage");
         if (health <= 0) {
             Die();
         }
+    }
+
+    IEnumerator AnimateDamage()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.05f);
+        spriteRenderer.color = Color.white;
     }
 
     protected virtual void Die() {
