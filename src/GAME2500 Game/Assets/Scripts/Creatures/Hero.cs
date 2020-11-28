@@ -12,7 +12,7 @@ public class Hero : Creature {
     }
 
     void Update() {
-        Run(Vector3.left);
+        //Run(Vector3.left);
     }
 
     protected override void Die() {

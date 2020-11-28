@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7c0287083ab4e489cd259704a57d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnForce: 150
+  spawnForce: 250
   rotSpeed: 50
 --- !u!212 &3389869328645688730
 SpriteRenderer:
