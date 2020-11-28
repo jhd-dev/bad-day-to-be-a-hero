@@ -13,7 +13,7 @@ public class buttonScript : MonoBehaviour
     public TextMeshProUGUI name;
     public TextMeshProUGUI cost;
 
-    private GameObject hudCamera;
+    private GameObject hud;
 
     private int currentBoneCount;
 
@@ -21,9 +21,9 @@ public class buttonScript : MonoBehaviour
     void Start()
     {
         //find hud to get bonecount info
-        hudCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        hud = GameObject.FindGameObjectWithTag("Canvas");
         //update bonecount
-        currentBoneCount = hudCamera.GetComponent<shopController>().boneCount;
+        currentBoneCount = hud.GetComponent<shopController>().boneCount;
 
         //display info form enemy
         name.text = enemy.name;
@@ -36,11 +36,11 @@ public class buttonScript : MonoBehaviour
     {
         //when button is clicked:
         // update bone count
-        currentBoneCount = hudCamera.GetComponent<shopController>().boneCount;
+        currentBoneCount = hud.GetComponent<shopController>().boneCount;
         //if you have enough funds, update funds and do whatever
         if (currentBoneCount >= enemy.cost)
         {
-            hudCamera.GetComponent<shopController>().boneCount = currentBoneCount - enemy.cost;
+            hud.GetComponent<shopController>().boneCount = currentBoneCount - enemy.cost;
             //Instantiate whatever is that enemy's game object
 
         }
