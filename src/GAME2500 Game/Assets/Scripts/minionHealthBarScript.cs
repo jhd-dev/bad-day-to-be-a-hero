@@ -16,6 +16,7 @@ public class minionHealthBarScript : MonoBehaviour
     void Start()
     {
         minions = new List<GameObject>(GameObject.FindGameObjectsWithTag("Minion"));
+        minions.Add(GameObject.FindGameObjectWithTag("Boss"));
         minionCount = minions.Count;
 
         //if minion count is greater than max just keep it at max

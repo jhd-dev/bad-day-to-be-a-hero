@@ -1439,7 +1439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da98308564735409b9f2186ab3c547d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenHeroes: 1
+  timeBeforeFirstWave: 5
+  timeBetweenHeroes: 3
   timeBetweenWaves: 10
   heroTypes:
   - {fileID: 9002237537599375354, guid: d5825375676614f36951ee26b5cdee01, type: 3}

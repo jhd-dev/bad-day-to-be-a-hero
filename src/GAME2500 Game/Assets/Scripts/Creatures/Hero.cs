@@ -5,7 +5,8 @@ using Pathfinding;
 
 public class Hero : Creature {
 
-    [SerializeField] int boneValue;
+    [SerializeField] int attackRadius; //A villain must be within this distance for the hero to attack it
+    [SerializeField] int boneValue; // The amount of bone collectables the villian spawns upon death (each collectable is worth 10 bones in currency)
     [SerializeField] GameObject bone;
     AIDestinationSetter destinationSetter;
 
@@ -22,7 +23,10 @@ public class Hero : Creature {
 
     protected virtual void AttemptAttack() {
         if (attack != null) {
-            attack.Attempt(this, GetClosestVillain().transform.position);
+            GameObject closestVillain = GetClosestVillain();
+            if (Vector2.Distance(transform.position, closestVillain.transform.position) < attackRadius) {
+                attack.Attempt(this, closestVillain.transform.position);
+            }
         }
     }
 
