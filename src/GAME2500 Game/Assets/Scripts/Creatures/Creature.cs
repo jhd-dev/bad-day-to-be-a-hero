@@ -9,7 +9,7 @@ public class Creature : MonoBehaviour {
     public float maxAcceleration;
 
     public Attack attack;
-    public SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
     Color defaultSpriteColor;
 
     Rigidbody2D rb2d;
@@ -43,8 +43,7 @@ public class Creature : MonoBehaviour {
         }
     }
 
-    IEnumerator AnimateDamage()
-    {
+    IEnumerator AnimateDamage() {
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.05f);
         spriteRenderer.color = defaultSpriteColor;

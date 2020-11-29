@@ -41,7 +41,11 @@ public class HealthBarScript : MonoBehaviour
     void Update()
     {
         //update health
-        health = (float)minion.GetComponent<Creature>().health;
+        if (minion != null) {
+            health = (float)minion.GetComponent<Creature>().health;
+        } else {
+            Destroy(gameObject);
+        }
 
         //correct bar
         setHealthBar();

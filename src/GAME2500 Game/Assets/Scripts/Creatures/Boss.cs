@@ -6,7 +6,7 @@ public class Boss : Villain {
     
     public int boneCount;
 
-    void Start() {
+    void Awake() {
         //Villain.boss = this;
         if (Villain.soul != null) {
             Villain.soul.SetHost(this);
@@ -14,6 +14,7 @@ public class Boss : Villain {
     }
 
     protected override void Die() {
-        System.Console.WriteLine("Game Over");
+        print("Game Over");
+        Destroy(gameObject);
     }
 }

@@ -24,7 +24,6 @@ public class OverheadControl : MonoBehaviour
     [SerializeField] Soul soul;
 
     // Other Attributes
-    GameObject[] minions;
     float actualHorizSpeed;
     float actualVertSpeed;
     float defaultOrthoSize;
@@ -33,7 +32,6 @@ public class OverheadControl : MonoBehaviour
 
     void Start()
     {
-        minions = GameObject.FindGameObjectsWithTag("Minion");
         cam = GetComponent<Camera>();
         defaultOrthoSize = cam.orthographicSize;
     }
@@ -88,7 +86,7 @@ public class OverheadControl : MonoBehaviour
 
         if (zoomType == ZoomType.OnMinion)
         {
-            soul.SetHost(GetClosestMinion().GetComponent<Minion>());
+            soul.SetHost(GetClosestMinion().GetComponent<Villain>());
         }
 
         // Animation
@@ -153,11 +151,13 @@ public class OverheadControl : MonoBehaviour
 
     GameObject GetClosestMinion()
     {
+        List<GameObject> minions = new List<GameObject>(GameObject.FindGameObjectsWithTag("Minion"));
+        minions.Add(GameObject.FindGameObjectWithTag("Boss"));
         Vector2 midScreen = new Vector2(Screen.width / 2, Screen.height / 2);
         float minDistance = 99999;
-        int closestIndex = 0;
+        int closestIndex = -1;
 
-        for (int i = 0; i < minions.Length; i++)
+        for (int i = 0; i < minions.Count; i++)
         {
             Vector2 minionPos = cam.WorldToScreenPoint(minions[i].transform.position);
             float distance = Vector2.Distance(minionPos, midScreen);

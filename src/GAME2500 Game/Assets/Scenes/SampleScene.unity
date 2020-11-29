@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 317136259}
   - component: {fileID: 317136260}
   m_Layer: 0
-  m_Name: Hero Goal
+  m_Name: Treasure
   m_TagString: HeroGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +601,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 82667e2084d735c4c9f8ac504897bf4a, type: 3}
   m_Color: {r: 1, g: 0.8691486, b: 0, a: 1}
   m_FlipX: 0
@@ -1442,9 +1442,9 @@ MonoBehaviour:
   timeBetweenHeroes: 1
   timeBetweenWaves: 10
   heroTypes:
-  - {fileID: 5992530427229499649, guid: 0cc36cc3edf15461196d2df6f7180000, type: 3}
+  - {fileID: 9002237537599375354, guid: d5825375676614f36951ee26b5cdee01, type: 3}
   waves:
-  - heroes: 0000000000000000000000000000000000000000
+  - heroes: 00000000
   - heroes: 0000000000000000000000000000000000000000
 --- !u!224 &1188049522 stripped
 RectTransform:
@@ -4311,7 +4311,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4234402291678608727, guid: abcab6657f70d544db794192afc21473, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879222342535845866, guid: abcab6657f70d544db794192afc21473, type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6879222342535845866, guid: abcab6657f70d544db794192afc21473, type: 3}
       propertyPath: maxAcceleration
@@ -4367,7 +4371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6879222342535845871, guid: abcab6657f70d544db794192afc21473, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6879222342535845871, guid: abcab6657f70d544db794192afc21473, type: 3}
       propertyPath: m_IsActive
@@ -4399,7 +4403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6879222342673819579, guid: abcab6657f70d544db794192afc21473, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abcab6657f70d544db794192afc21473, type: 3}
