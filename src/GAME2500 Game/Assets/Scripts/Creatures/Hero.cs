@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Hero : Creature {
 
     [SerializeField] int boneValue;
     [SerializeField] GameObject bone;
+    AIDestinationSetter destinationSetter;
 
-    void Update() {
-        //Run(Vector3.left);
+    void Awake() {
+        destinationSetter = GetComponent<AIDestinationSetter>();
+        destinationSetter.target = GameObject.FindGameObjectWithTag("HeroGoal").transform;
     }
 
     protected override void Die() {

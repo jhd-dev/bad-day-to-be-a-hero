@@ -10,6 +10,7 @@ public class Creature : MonoBehaviour {
 
     public Attack attack;
     public SpriteRenderer spriteRenderer;
+    Color defaultSpriteColor;
 
     Rigidbody2D rb2d;
 
@@ -18,6 +19,7 @@ public class Creature : MonoBehaviour {
             rb2d = GetComponent<Rigidbody2D>();
         }
         spriteRenderer = transform.Find("Sprite").gameObject.GetComponent<SpriteRenderer>();
+        defaultSpriteColor = spriteRenderer.color;
         health = maxHealth;
     }
 
@@ -45,7 +47,7 @@ public class Creature : MonoBehaviour {
     {
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.05f);
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = defaultSpriteColor;
     }
 
     protected virtual void Die() {
