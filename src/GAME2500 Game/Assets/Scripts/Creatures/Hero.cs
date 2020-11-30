@@ -5,15 +5,24 @@ using Pathfinding;
 
 public class Hero : Creature {
 
+    [SerializeField] int pillageAmount = 5;
+    [SerializeField] float pillageRadius = 1;
+    [SerializeField] float pillageRate = 0.5f;
     [SerializeField] int attackRadius; //A villain must be within this distance for the hero to attack it
+    [SerializeField] float attackRate = 2;
     [SerializeField] int boneValue; // The amount of bone collectables the villian spawns upon death (each collectable is worth 10 bones in currency)
     [SerializeField] GameObject bone;
+    GameObject treasure;
+    Treasure treasureScript;
     AIDestinationSetter destinationSetter;
 
     void Awake() {
-        InvokeRepeating("AttemptAttack", 2, 2);
+        InvokeRepeating("AttemptPillage", pillageRate, pillageRate);
+        InvokeRepeating("AttemptAttack", attackRate, attackRate);
         destinationSetter = GetComponent<AIDestinationSetter>();
-        destinationSetter.target = GameObject.FindGameObjectWithTag("HeroGoal").transform;
+        treasure = GameObject.FindGameObjectWithTag("HeroGoal");
+        treasureScript = treasure.GetComponent<Treasure>();
+        destinationSetter.target = treasure.transform;
     }
 
     protected override void Die() {
@@ -27,6 +36,13 @@ public class Hero : Creature {
             if (Vector2.Distance(transform.position, closestVillain.transform.position) < attackRadius) {
                 attack.Attempt(this, closestVillain.transform.position);
             }
+        }
+    }
+
+    protected virtual void AttemptPillage() {
+        float treasureDistance = Vector2.Distance(transform.position, treasure.transform.position);
+        if (treasureDistance < pillageRadius) {
+            treasureScript.GetPillaged(5);
         }
     }
 

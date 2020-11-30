@@ -8,6 +8,7 @@ public class Bone : MonoBehaviour
     Transform soul;
     [SerializeField] float spawnForce;
     [SerializeField] int rotSpeed;
+    [SerializeField] float attractionToSoul = 1;
 
     void Start() {
         soul = GameObject.FindGameObjectWithTag("Soul").transform;
@@ -18,7 +19,8 @@ public class Bone : MonoBehaviour
 
     void Update() {
         transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
-        transform.position = Vector3.Lerp(transform.position, soul.position, Time.deltaTime);
+        float soulDistance = Vector3.Distance(transform.position, soul.position);
+        transform.position = Vector3.Lerp(transform.position, soul.position, Time.deltaTime * attractionToSoul / soulDistance);
     }
 
     void OnTriggerEnter2D (Collider2D other) {

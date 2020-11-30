@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnForce: 250
   rotSpeed: 50
+  attractionToSoul: 5
 --- !u!212 &3389869328645688730
 SpriteRenderer:
   m_ObjectHideFlags: 0
