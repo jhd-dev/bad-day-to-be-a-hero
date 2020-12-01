@@ -6,6 +6,7 @@ public class Bone : MonoBehaviour
 {
     shopController shop;
     Transform soul;
+    [SerializeField] int value;
     [SerializeField] float spawnForce;
     [SerializeField] int rotSpeed;
     [SerializeField] float attractionToSoul = 1;
@@ -25,7 +26,7 @@ public class Bone : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D other) {
         if (other.gameObject.CompareTag("Minion") || other.gameObject.CompareTag("Boss")) {
-            shop.boneCount += 10;
+            shop.boneCount += value;
             Destroy(gameObject);
         }
     }

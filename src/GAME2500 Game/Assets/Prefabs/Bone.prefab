@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7c0287083ab4e489cd259704a57d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 1
   spawnForce: 250
   rotSpeed: 50
   attractionToSoul: 5
@@ -137,7 +138,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 09c5d9abc290d1a4e9e72d8dd946ed27, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6556604, b: 0.85714716, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

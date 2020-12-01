@@ -58,7 +58,7 @@ public class OverheadControl : MonoBehaviour
 
     void ConsiderPossession()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && !inZoomSequence) {
             StartCoroutine("Zoom", ZoomType.OnMinion);
         }
     }

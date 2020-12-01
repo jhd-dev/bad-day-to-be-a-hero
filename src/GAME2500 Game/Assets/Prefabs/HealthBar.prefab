@@ -189,7 +189,7 @@ RectTransform:
   m_Children:
   - {fileID: 5915347548961870312}
   - {fileID: 9188566215986776122}
-  m_Father: {fileID: 7190145580868447036}
+  m_Father: {fileID: 8680508328186008018}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
   m_AnchorMin: {x: 0, y: 0}
@@ -504,16 +504,16 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7190145580868447036}
+  - component: {fileID: 8680508328186008018}
   - component: {fileID: 6372147930075420006}
   m_Layer: 5
   m_Name: HealthBar
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7190145580868447036
+--- !u!4 &8680508328186008018
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -693,7 +693,7 @@ Transform:
   - {fileID: 2999209548379105684}
   - {fileID: 8679417678082323814}
   - {fileID: 7826710233131727729}
-  m_Father: {fileID: 7190145580868447036}
+  m_Father: {fileID: 8680508328186008018}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8619907181251590655

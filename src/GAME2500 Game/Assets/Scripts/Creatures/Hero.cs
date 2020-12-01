@@ -10,7 +10,7 @@ public class Hero : Creature {
     [SerializeField] float pillageRate = 0.5f;
     [SerializeField] int attackRadius; //A villain must be within this distance for the hero to attack it
     [SerializeField] float attackRate = 2;
-    [SerializeField] int boneValue; // The amount of bone collectables the villian spawns upon death (each collectable is worth 10 bones in currency)
+    [SerializeField] int boneValue; // The amount of bone collectables the villian spawns upon death
     [SerializeField] GameObject bone;
     GameObject treasure;
     Treasure treasureScript;
@@ -42,7 +42,7 @@ public class Hero : Creature {
     protected virtual void AttemptPillage() {
         float treasureDistance = Vector2.Distance(transform.position, treasure.transform.position);
         if (treasureDistance < pillageRadius) {
-            treasureScript.GetPillaged(5);
+            treasureScript.GetPillaged(pillageAmount);
         }
     }
 

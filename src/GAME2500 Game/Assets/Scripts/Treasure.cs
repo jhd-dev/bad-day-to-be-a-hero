@@ -18,7 +18,7 @@ public class Treasure : MonoBehaviour
         wealth -= amountStolen;
         slider.value = (float)wealth / (float)maxWealth;
         if (wealth <= 0) {
-            print("Game Over");
+            GameStatus.isGameOver = true;
         }
     }
 }

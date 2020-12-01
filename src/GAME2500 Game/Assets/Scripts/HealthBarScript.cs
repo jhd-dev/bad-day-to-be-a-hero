@@ -19,12 +19,13 @@ public class HealthBarScript : MonoBehaviour
     {
         // get the health of the given minion
         health = (float)minion.GetComponent<Creature>().health;
-
-        initialHealth = (float)health;
+        initialHealth = minion.GetComponent<Creature>().maxHealth;
 
         // get the health bar object
         healthBar = transform.GetChild(0).transform.Find("Bar").gameObject;
 
+        // set the health bar initially
+        setHealthBar();
 
         //get image of enemy
         sprite = minion.transform.Find("Sprite").gameObject.GetComponent<SpriteRenderer>().sprite;
@@ -32,7 +33,7 @@ public class HealthBarScript : MonoBehaviour
         transform.GetChild(1).transform.Find("CircleMask").transform.Find("Enemy Image").gameObject.GetComponent<Image>().sprite = sprite;
     }
 
-    void setHealthBar()
+    public void setHealthBar()
     {
         healthBar.GetComponent<Transform>().localScale = new Vector3((health / initialHealth), 1f, 0f);
     }

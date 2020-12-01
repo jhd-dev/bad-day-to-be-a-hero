@@ -14,7 +14,7 @@ public class Boss : Villain {
     }
 
     protected override void Die() {
-        print("Game Over");
+        GameStatus.isGameOver = true;
         Destroy(gameObject);
     }
 }

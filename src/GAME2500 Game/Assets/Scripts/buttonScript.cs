@@ -42,6 +42,7 @@ public class buttonScript : MonoBehaviour
         {
             hud.GetComponent<shopController>().boneCount = currentBoneCount - enemy.cost;
             //Instantiate whatever is that enemy's game object
+            Instantiate(enemy.enemyGameObject, Vector3.zero, Quaternion.Euler(0, 0, 0));
 
         }
     }

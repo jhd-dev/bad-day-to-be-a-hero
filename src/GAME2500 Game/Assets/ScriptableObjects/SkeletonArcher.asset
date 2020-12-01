@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SkeletonArcher
   m_EditorClassIdentifier: 
   name: Skeleton Archer
-  cost: 15
-  artwork: {fileID: 21300000, guid: 90f60b28385ec8242b612d8b663429eb, type: 3}
-  enemyGameObject: {fileID: 0}
+  cost: 10
+  artwork: {fileID: 21300000, guid: 521500b2663a54d23ab6b61b4c85050f, type: 3}
+  enemyGameObject: {fileID: 7807250356375696465, guid: ec75665becd3844a48dc972f2b2f7a33, type: 3}

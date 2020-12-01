@@ -16,7 +16,7 @@ public class ControlCenter : MonoBehaviour
         }
         else
         {
-            modeText.text = "Minion Mode";
+            modeText.text = "Villain Mode";
         }
     }
 }

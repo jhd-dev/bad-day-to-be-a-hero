@@ -6,7 +6,7 @@ public class Creature : MonoBehaviour {
 
     public int maxHealth;
     public int health { get; private set; }
-    public float maxAcceleration;
+    public float maxSpeed;
 
     public Attack attack;
     SpriteRenderer spriteRenderer;
@@ -28,8 +28,9 @@ public class Creature : MonoBehaviour {
             rb2d = GetComponent<Rigidbody2D>();
         }
 
-        Vector2 accelerationDirection = target;//.normalized;
-        rb2d.AddForce(accelerationDirection * maxAcceleration);
+        Vector2 direction = target;//.normalized;
+        //rb2d.AddForce(accelerationDirection * maxAcceleration);
+        rb2d.velocity = (direction * maxSpeed);
     }
 
     public virtual void TakeDamage(int damage, bool directHit = true) { // damage: the amount of damage; directHit: whether the damage is from an attack, or else something different (i.e. poison or an AoE)
