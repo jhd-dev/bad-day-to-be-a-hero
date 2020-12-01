@@ -36,7 +36,7 @@ public class Villain : Creature {
     }
 
     protected virtual void HandleAttackInput() {
-        if (Input.GetKeyDown(attackKey) && !ControlCenter.inCameraMode) {
+        if (Input.GetKey(attackKey) && !ControlCenter.inCameraMode) {
             Vector2 mouseScreenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
             attack.Attempt(this, mouseWorldPosition);
