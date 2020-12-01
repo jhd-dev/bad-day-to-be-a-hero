@@ -33,6 +33,7 @@ public class minionHealthBarScript : MonoBehaviour
         minionHealthBar.GetComponent<HealthBarScript>().minion = gO;
         minionHealthBar.transform.SetParent(gameObject.transform);
         minionHealthBar.transform.localPosition = new Vector3(-300f, (0 - (100 * num)), 100);
+        minionHealthBar.transform.localScale = healthBar.transform.localScale;
         return minionHealthBar;
     }
 
