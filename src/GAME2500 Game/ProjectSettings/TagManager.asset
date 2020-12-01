@@ -13,6 +13,8 @@ TagManager:
   - Canvas
   - Soul
   - HeroGoal
+  - Projectile
+  - SemiWall
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - 
   - Wall
   - Entity
-  - 
+  - Semi-Wall
   - 
   - 
   - 

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  maxSpeed: 8
+  maxSpeed: 7
   attack: {fileID: 6633835239079577933}
   isHost: 0
 --- !u!50 &4153559338665977208

@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour {
     public float launchSpeed;
     public float lifespan;
     public int power; // amount of damage to do
+    [SerializeField] bool passesThroughWalls;
+    [SerializeField] bool canceledByOtherProjectiles;
 
     bool launched = false;
     Vector2 velocity = Vector2.zero;
@@ -51,7 +53,13 @@ public class Projectile : MonoBehaviour {
             }
         }
 
-        if (col != null && col.gameObject.CompareTag("Wall"))
+        if (col != null && col.gameObject.CompareTag("Wall") && !passesThroughWalls)
+        {
+            Destroy(this.gameObject);
+        }
+
+        // Projectiles cancel each other out
+        if (col != null && col.gameObject.CompareTag("Projectile") && canceledByOtherProjectiles)
         {
             Destroy(this.gameObject);
         }

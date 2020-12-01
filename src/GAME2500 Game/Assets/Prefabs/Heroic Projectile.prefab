@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2448332609482208516}
   m_Layer: 0
   m_Name: Heroic Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,6 +52,8 @@ MonoBehaviour:
   launchSpeed: 5
   lifespan: 2.5
   power: 5
+  passesThroughWalls: 1
+  canceledByOtherProjectiles: 1
 --- !u!50 &1982307506714226009
 Rigidbody2D:
   serializedVersion: 4

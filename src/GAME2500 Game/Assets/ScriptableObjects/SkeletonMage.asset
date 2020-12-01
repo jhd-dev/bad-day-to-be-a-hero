@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SkeletonMage
   m_EditorClassIdentifier: 
   name: Skeleton Mage
-  cost: 10
+  cost: 15
   artwork: {fileID: 21300000, guid: 83dde38d4e07e480e8f4bcc2f11fd9f6, type: 3}
   enemyGameObject: {fileID: 6918717685944832900, guid: 1527384e68e45428a9d084aa1ce3a60c, type: 3}

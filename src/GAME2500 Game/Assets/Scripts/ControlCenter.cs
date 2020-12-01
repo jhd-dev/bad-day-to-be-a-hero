@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ControlCenter : MonoBehaviour
 {
-    public static bool inCameraMode = true;
+    public static bool inCameraMode = false;
     [SerializeField] Text modeText; 
 
     void Update()
