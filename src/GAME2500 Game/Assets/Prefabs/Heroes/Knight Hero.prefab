@@ -52,6 +52,8 @@ MonoBehaviour:
   maxHealth: 30
   maxSpeed: 0
   attack: {fileID: 5364798444128221760}
+  damageSound: {fileID: 5881438652732901404, guid: 0b70a702cdcb74ed3a220a815ed125b6, type: 3}
+  deathSound: {fileID: 8402949803819346488, guid: 44d09058416e14a56894b7a12fe5c657, type: 3}
   pillageAmount: 5
   pillageRadius: 1
   pillageRate: 0.5
@@ -69,7 +71,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.09, y: 0}

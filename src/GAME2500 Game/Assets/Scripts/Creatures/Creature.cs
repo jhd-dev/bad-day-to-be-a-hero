@@ -14,6 +14,9 @@ public class Creature : MonoBehaviour {
 
     Rigidbody2D rb2d;
 
+    [SerializeField] GameObject damageSound;
+    [SerializeField] GameObject deathSound;
+
     void Start() {
         if (GetComponent<Rigidbody2D>() != null) {
             rb2d = GetComponent<Rigidbody2D>();
@@ -34,13 +37,19 @@ public class Creature : MonoBehaviour {
     }
 
     public virtual void TakeDamage(int damage, bool directHit = true) { // damage: the amount of damage; directHit: whether the damage is from an attack, or else something different (i.e. poison or an AoE)
+
         if (directHit) {
             // play sound? visual effect?
         }
         health -= damage;
         StartCoroutine("AnimateDamage");
-        if (health <= 0) {
+        if (health <= 0)
+        {
             Die();
+        }
+        else
+        {
+            Instantiate(damageSound, transform.position, Quaternion.Euler(0, 0, 0));
         }
     }
 
@@ -51,6 +60,7 @@ public class Creature : MonoBehaviour {
     }
 
     protected virtual void Die() {
+        Instantiate(deathSound, transform.position, Quaternion.Euler(0, 0, 0));
         Destroy(this.gameObject, 0);
     }
 }

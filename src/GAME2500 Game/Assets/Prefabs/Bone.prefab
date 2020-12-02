@@ -94,9 +94,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  spawnForce: 250
+  spawnForce: 500
   rotSpeed: 50
-  attractionToSoul: 5
+  attractionToSoul: 8
+  collectionSound: {fileID: 5563420880988366130, guid: cdee5a7d6f15643b4aa7b46b8b0c8ee1, type: 3}
 --- !u!212 &3389869328645688730
 SpriteRenderer:
   m_ObjectHideFlags: 0

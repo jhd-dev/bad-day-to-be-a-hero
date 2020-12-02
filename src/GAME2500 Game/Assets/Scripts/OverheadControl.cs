@@ -20,6 +20,9 @@ public class OverheadControl : MonoBehaviour
     [SerializeField] int minimumZoomLevel;
     [SerializeField] int maximumZoomLevel;
     [SerializeField] float zoomSpeed;
+    [SerializeField] AudioSource zoomIn;
+    [SerializeField] AudioSource zoomOut;
+    [SerializeField] AudioSource centerIn;
     [Header("Switching")]
     [SerializeField] Soul soul;
 
@@ -59,18 +62,21 @@ public class OverheadControl : MonoBehaviour
     void ConsiderPossession()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !inZoomSequence) {
+            centerIn.Play();
             StartCoroutine("Zoom", ZoomType.OnMinion);
         }
     }
 
     void ConsiderZoom()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && !inZoomSequence) {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && !inZoomSequence && zoomLevel != minimumZoomLevel) {
+            zoomIn.Play();
             StartCoroutine("Zoom", ZoomType.In);
             ControlCenter.inCameraMode = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !inZoomSequence) {
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !inZoomSequence && zoomLevel != maximumZoomLevel) {
+            zoomOut.Play();
             StartCoroutine("Zoom", ZoomType.Out);
             ControlCenter.inCameraMode = true;
         }
@@ -96,9 +102,9 @@ public class OverheadControl : MonoBehaviour
 
         while (!reachedGoalZoom || !reachedGoalPos)
         {
-            transform.position += (goalPos - transform.position) / (8 / zoomSpeed);
-            cam.orthographicSize += (goalOrthoSize - cam.orthographicSize) / (8 / zoomSpeed);
-            yield return new WaitForSeconds(0.01f);
+            transform.position += (goalPos - transform.position) / (8 / (zoomSpeed * Time.deltaTime));
+            cam.orthographicSize += (goalOrthoSize - cam.orthographicSize) / (8 / (zoomSpeed * Time.deltaTime));
+            yield return new WaitForEndOfFrame();
             if (!reachedGoalZoom) reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalOrthoSize) < 0.5f;
             if (!reachedGoalPos) reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
         }
@@ -118,25 +124,21 @@ public class OverheadControl : MonoBehaviour
 
     float GetGoalOrthoSize (ZoomType zoomType)
     {
-        if (zoomType == ZoomType.In && zoomLevel != minimumZoomLevel)
+        if (zoomType == ZoomType.In)
         {
             zoomLevel--;
             return cam.orthographicSize / 2;
         }
-        else if (zoomType == ZoomType.Out && zoomLevel != maximumZoomLevel)
+        else if (zoomType == ZoomType.Out)
         {
             zoomLevel++;
             return cam.orthographicSize * 2;
         }
-        else if (zoomType == ZoomType.OnMinion)
+        else //zooming onto a minion to control
         {
             zoomLevel = 0;
             return defaultOrthoSize;
         }
-
-        // If trying to go beyond the highest or lowest possible zoom
-        StopCoroutine("Zoom");
-        return cam.orthographicSize;
     }
 
     Vector3 GetGoalPos(ZoomType zoomType)

@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Goblin
   cost: 15
   artwork: {fileID: 21300000, guid: 853c2caf2bdbc4dc2865a7907717f783, type: 3}
-  enemyGameObject: {fileID: 5962107241849129267, guid: c7f6c0b4803f64ca0b4fe3a29db99b4f, type: 3}
+  enemyGameObject: {fileID: 6918717685944832900, guid: 1527384e68e45428a9d084aa1ce3a60c, type: 3}

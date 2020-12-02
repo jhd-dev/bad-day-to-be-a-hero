@@ -10,6 +10,8 @@ public class Bone : MonoBehaviour
     [SerializeField] float spawnForce;
     [SerializeField] int rotSpeed;
     [SerializeField] float attractionToSoul = 1;
+    [SerializeField] GameObject collectionSound;
+    bool collectable = false;
 
     void Start() {
         soul = GameObject.FindGameObjectWithTag("Soul").transform;
@@ -25,7 +27,8 @@ public class Bone : MonoBehaviour
     }
 
     void OnTriggerEnter2D (Collider2D other) {
-        if (other.gameObject.CompareTag("Minion") || other.gameObject.CompareTag("Boss")) {
+        if (other.gameObject.CompareTag("Soul")) {
+            Instantiate(collectionSound, transform.position, Quaternion.Euler(0, 0, 0));
             shop.boneCount += value;
             Destroy(gameObject);
         }
