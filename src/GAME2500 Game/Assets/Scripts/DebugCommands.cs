@@ -12,18 +12,12 @@ public class DebugCommands : MonoBehaviour
     {
         if (Input.GetKeyDown(resetLevel))
         {
-            ReloadScene();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         if (Input.GetKeyDown(exitGame))
         {
             Application.Quit();
         }
-    }
-
-    void ReloadScene()
-    {
-        ControlCenter.inCameraMode = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
