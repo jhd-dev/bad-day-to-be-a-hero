@@ -41,11 +41,11 @@ public class OverheadControl : MonoBehaviour
 
     void LateUpdate()
     {
-        if (ControlCenter.inCameraMode)
-        {
-            if (!inZoomSequence) Pivot();
-            ConsiderPossession();
-        }
+        //if (ControlCenter.inCameraMode)
+        //{
+           // if (!inZoomSequence) Pivot();
+        ConsiderPossession();
+        //}
 
         ConsiderZoom();
     }
@@ -61,24 +61,26 @@ public class OverheadControl : MonoBehaviour
 
     void ConsiderPossession()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space) && !inZoomSequence) {
             centerIn.Play();
             StartCoroutine("Zoom", ZoomType.OnMinion);
         }
+        */
     }
 
     void ConsiderZoom()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && !inZoomSequence && zoomLevel != minimumZoomLevel) {
+        if (Input.GetKey(KeyCode.UpArrow) && !inZoomSequence && zoomLevel != minimumZoomLevel) {
             zoomIn.Play();
             StartCoroutine("Zoom", ZoomType.In);
-            ControlCenter.inCameraMode = true;
+            //ControlCenter.inCameraMode = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !inZoomSequence && zoomLevel != maximumZoomLevel) {
+        if (Input.GetKey(KeyCode.DownArrow) && !inZoomSequence && zoomLevel != maximumZoomLevel) {
             zoomOut.Play();
             StartCoroutine("Zoom", ZoomType.Out);
-            ControlCenter.inCameraMode = true;
+            //ControlCenter.inCameraMode = true;
         }
     }
 
@@ -88,7 +90,7 @@ public class OverheadControl : MonoBehaviour
 
         inZoomSequence = true;
         float goalOrthoSize = GetGoalOrthoSize(zoomType);
-        Vector3 goalPos = GetGoalPos(zoomType);
+        //Vector3 goalPos = GetGoalPos(zoomType);
 
         if (zoomType == ZoomType.OnMinion)
         {
@@ -98,26 +100,28 @@ public class OverheadControl : MonoBehaviour
         // Animation
 
         bool reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalOrthoSize) < 0.5f;
-        bool reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
+        //bool reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
 
-        while (!reachedGoalZoom || !reachedGoalPos)
+        while (!reachedGoalZoom) //|| !reachedGoalPos)
         {
-            transform.position += (goalPos - transform.position) / (8 / (zoomSpeed * Time.deltaTime));
+            //transform.position += (goalPos - transform.position) / (8 / (zoomSpeed * Time.deltaTime));
             cam.orthographicSize += (goalOrthoSize - cam.orthographicSize) / (8 / (zoomSpeed * Time.deltaTime));
             yield return new WaitForEndOfFrame();
             if (!reachedGoalZoom) reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalOrthoSize) < 0.5f;
-            if (!reachedGoalPos) reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
+            //if (!reachedGoalPos) reachedGoalPos = (transform.position - goalPos).magnitude < 0.1f;
         }
 
+        /*
         if (zoomType == ZoomType.OnMinion)
         {
-            transform.parent = soul.transform;
-            ControlCenter.inCameraMode = false;
+            //transform.parent = soul.transform;
+            //ControlCenter.inCameraMode = false;
         }
         else
         {
-            transform.parent = null;
+            //transform.parent = null;
         }
+        */
 
         inZoomSequence = false;
     }
@@ -141,6 +145,7 @@ public class OverheadControl : MonoBehaviour
         }
     }
 
+    /*
     Vector3 GetGoalPos(ZoomType zoomType)
     {
         if (zoomType == ZoomType.OnMinion)
@@ -150,6 +155,7 @@ public class OverheadControl : MonoBehaviour
 
         return transform.position;
     }
+    */
 
     GameObject GetClosestMinion()
     {
