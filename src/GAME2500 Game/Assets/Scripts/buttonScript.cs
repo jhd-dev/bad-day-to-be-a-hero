@@ -13,6 +13,8 @@ public class buttonScript : MonoBehaviour
     public TextMeshProUGUI name;
     public TextMeshProUGUI cost;
 
+    public GameObject dropper;
+
     private GameObject hud;
 
     private int currentBoneCount;
@@ -42,7 +44,8 @@ public class buttonScript : MonoBehaviour
         {
             hud.GetComponent<shopController>().boneCount = currentBoneCount - enemy.cost;
             //Instantiate whatever is that enemy's game object
-            Instantiate(enemy.enemyGameObject, Vector3.zero, Quaternion.Euler(0, 0, 0));
+            GameObject newMinion = Instantiate(dropper, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+            newMinion.GetComponent<placeMinionScript>().minion = enemy.enemyGameObject;
 
         }
     }

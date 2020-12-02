@@ -542,6 +542,7 @@ MonoBehaviour:
   artworkImage: {fileID: 8320644692926570865}
   name: {fileID: 2634399635678670554}
   cost: {fileID: 7448086860072130782}
+  dropper: {fileID: 5093059360906123453, guid: 398d98b4d8be4014cadc72c5bb213f35, type: 3}
 --- !u!1 &5898082498753181134
 GameObject:
   m_ObjectHideFlags: 0
