@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour {
             }
             lifespanRemaining -= Time.deltaTime;
             if (lifespanRemaining <= 0) {
-                Destroy(this.gameObject, 1);
+                Destroy(this.gameObject, 0);
             }
         }
     }

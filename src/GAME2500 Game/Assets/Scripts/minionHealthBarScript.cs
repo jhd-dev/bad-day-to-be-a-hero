@@ -49,19 +49,13 @@ public class minionHealthBarScript : MonoBehaviour
             // if the minion count is not too large
             if (!(minionCount > maxMinionCount)) {
                 foreach (GameObject healthBar in GameObject.FindGameObjectsWithTag("HealthBar")) {
-                    Destroy(healthBar);
+                    Destroy(healthBar); // Remove existing health bars before recreating them all
                 }
 
                 for (int i = 0; i < minionCount; i++) {
                     makeHealthBar(minions[i], i);
                 }
             }
-
-            // check to see if updated list is greater than max
-            /*if (minionCount > maxMinionCount)
-                minionCount = maxMinionCount;*/
-
-            // Remove existing health bars before recreating them all
         }
     }
 

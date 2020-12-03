@@ -2292,34 +2292,46 @@ MonoBehaviour:
   - {fileID: 8128768822061004575, guid: b971c465594bf4d369e7c770d014f7f2, type: 3}
   waves:
   - heroSpawns:
-    - heroID: 0
-      spawnPointID: 2
-    - heroID: 1
-      spawnPointID: 2
-    - heroID: 2
+    - heroID: 3
       spawnPointID: 2
     - heroID: 3
       spawnPointID: 2
-    - heroID: 4
+    - heroID: 3
       spawnPointID: 2
-  - heroSpawns:
-    - heroID: 0
-      spawnPointID: 1
-    - heroID: 0
-      spawnPointID: 0
-    - heroID: 0
-      spawnPointID: 1
-    - heroID: 0
-      spawnPointID: 0
-  - heroSpawns:
-    - heroID: 0
-      spawnPointID: 1
-    - heroID: 0
-      spawnPointID: 0
-    - heroID: 0
-      spawnPointID: 1
-    - heroID: 0
-      spawnPointID: 0
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
+    - heroID: 3
+      spawnPointID: 2
   waveDisplay: {fileID: 1503988966}
   spawnPoints:
   - {fileID: 1482898234}
@@ -6775,9 +6787,17 @@ PrefabInstance:
       value: Soul
       objectReference: {fileID: 0}
     - target: {fileID: 3054077200365737202, guid: 7b873ebe30ae2684eb7d750be47539dc, type: 3}
+      propertyPath: transfer
+      value: 
+      objectReference: {fileID: 308941862986665396, guid: d29562b2a23464f5f925438dcf182fba, type: 3}
+    - target: {fileID: 3054077200365737202, guid: 7b873ebe30ae2684eb7d750be47539dc, type: 3}
       propertyPath: travelSpeed
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 3054077200365737202, guid: 7b873ebe30ae2684eb7d750be47539dc, type: 3}
+      propertyPath: transferSound
+      value: 
+      objectReference: {fileID: 308941862986665397, guid: d29562b2a23464f5f925438dcf182fba, type: 3}
     - target: {fileID: 3054077200365737203, guid: 7b873ebe30ae2684eb7d750be47539dc, type: 3}
       propertyPath: m_RootOrder
       value: 4

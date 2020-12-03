@@ -10,6 +10,7 @@ public class Soul : MonoBehaviour {
     List<Villain> history; // log of previous hosts
     bool didChangeHost; // whether the host has been set during the current update cycle
     bool isTransferring; // whether the soul is visually moving between hosts
+    [SerializeField] GameObject transferSound;
     
     void Awake() {
         Villain.soul = this;
@@ -38,6 +39,7 @@ public class Soul : MonoBehaviour {
             if (host != null) {
                 host.BecomeHost(false);
             }
+            Instantiate(transferSound);
             host = newHost;
             host.BecomeHost(true);
             isTransferring = true;

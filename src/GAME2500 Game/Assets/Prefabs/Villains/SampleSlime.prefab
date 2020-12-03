@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf069f1aef0475458de9062070ee08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  maxSpeed: 7
+  maxHealth: 40
+  maxSpeed: 3
   attack: {fileID: 4560486958434397795}
   damageSound: {fileID: 5881438652732901404, guid: 0b70a702cdcb74ed3a220a815ed125b6, type: 3}
   deathSound: {fileID: 8402949803819346488, guid: 44d09058416e14a56894b7a12fe5c657, type: 3}
@@ -268,8 +268,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7328612470385445602, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
       propertyPath: cooldown
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7328612470385445602, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 492928020411451636, guid: 23ad7e76f989e455e8aef19dbffc26ac, type: 3}
     - target: {fileID: 7328612470385445603, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
       propertyPath: m_RootOrder
       value: 1

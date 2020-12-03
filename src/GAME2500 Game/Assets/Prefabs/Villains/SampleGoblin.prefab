@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 6918717685944832903}
   - component: {fileID: 6918717685944832952}
   m_Layer: 9
-  m_Name: SampleMage
+  m_Name: SampleGoblin
   m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  maxSpeed: 7
+  maxSpeed: 10
   attack: {fileID: 409914577003478962}
   damageSound: {fileID: 5881438652732901404, guid: 0b70a702cdcb74ed3a220a815ed125b6, type: 3}
   deathSound: {fileID: 8402949803819346488, guid: 44d09058416e14a56894b7a12fe5c657, type: 3}
