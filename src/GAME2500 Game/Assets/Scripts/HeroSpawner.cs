@@ -25,6 +25,7 @@ public class HeroSpawner : MonoBehaviour
     [SerializeField] Wave[] waves;
     [SerializeField] Text waveDisplay;
     [SerializeField] List<Transform> spawnPoints;
+    int timeTillNextWave;
 
     void Start() {
         StartCoroutine("Spawn");
@@ -34,30 +35,41 @@ public class HeroSpawner : MonoBehaviour
     IEnumerator Spawn() {
         yield return new WaitForSeconds(timeBeforeFirstWave);
 
-        for (int i = 0; i < waves.Length; i++)
-        {
-            // During a wave
+        for (int w = 0; w < waves.Length; w++) {
+            // Before the wave
+            waveDisplay.text = "WAVE " + (w + 1).ToString();
+            List<GameObject> existingHeroes = new List<GameObject>();
 
-            waveDisplay.text = "WAVE " + (i + 1).ToString();
-
-            for (int j = 0; j < waves[i].heroSpawns.Length; j++)
-            {
-                int heroType = waves[i].heroSpawns[j].heroID;
-                int spawnID = waves[i].heroSpawns[j].spawnPointID;
-                Instantiate(heroTypes[heroType], spawnPoints[spawnID]);
+            // Spawn the appropriate heroes on a certain time interval
+            for (int h = 0; h < waves[w].heroSpawns.Length; h++){
+                int heroType = waves[w].heroSpawns[h].heroID;
+                int spawnID = waves[w].heroSpawns[h].spawnPointID;
+                existingHeroes.Add(Instantiate(heroTypes[heroType], spawnPoints[spawnID]));
                 yield return new WaitForSeconds(timeBetweenHeroes);
             }
 
-            // After the wave
+            // Wait until all the wave's heroes are dead
+            yield return new WaitUntil(() => AllDead(existingHeroes));
 
-            if (i == waves.Length - 1) waveDisplay.text = "Waves Completed!";
-            else waveDisplay.text = "Next Wave in " + timeBetweenWaves.ToString() + " sec";
-
-            // Before the next wave
-
-            yield return new WaitForSeconds(timeBetweenWaves);
+            // Timer until next wave (if we aren't on the final wave already)
+            if (w != waves.Length - 1) {
+                timeTillNextWave = timeBetweenWaves;
+                while (timeTillNextWave > 0) {
+                    waveDisplay.text = "Wave " + (w + 2).ToString() + " in " + timeTillNextWave.ToString();
+                    yield return new WaitForSeconds(1);
+                    timeTillNextWave--;
+                }
+            }
         }
 
-        print("All Waves Concluded.");
+        waveDisplay.text = "You Win!";
+    }
+
+    bool AllDead(List<GameObject> heroes)
+    {
+        for (int i = 0; i < heroes.Count; i++)
+            if (heroes[i] != null) return false;
+
+        return true;
     }
 }
