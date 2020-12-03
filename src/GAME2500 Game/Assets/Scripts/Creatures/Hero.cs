@@ -12,6 +12,7 @@ public class Hero : Creature {
     [SerializeField] float attackRate = 2;
     [SerializeField] int boneValue; // The amount of bone collectables the villian spawns upon death
     [SerializeField] GameObject bone;
+    [SerializeField] GameObject pillageSound;
     GameObject treasure;
     Treasure treasureScript;
     AIDestinationSetter destinationSetter;
@@ -42,6 +43,7 @@ public class Hero : Creature {
     protected virtual void AttemptPillage() {
         float treasureDistance = Vector2.Distance(transform.position, treasure.transform.position);
         if (treasureDistance < pillageRadius) {
+            Instantiate(pillageSound);
             treasureScript.GetPillaged(pillageAmount);
         }
     }

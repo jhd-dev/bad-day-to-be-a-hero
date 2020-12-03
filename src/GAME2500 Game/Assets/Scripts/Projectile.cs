@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour {
     public int power; // amount of damage to do
     [SerializeField] bool passesThroughWalls;
     [SerializeField] bool canceledByOtherProjectiles;
+    [SerializeField] GameObject wallHitSound;
 
     bool launched = false;
     Vector2 velocity = Vector2.zero;
@@ -21,8 +22,15 @@ public class Projectile : MonoBehaviour {
     List<int> collidedWith = new List<int>(); // filled with Instance IDs
 
     void Start() {
+        SetRotation();
         piercableRemaining = piercable;
         lifespanRemaining = lifespan;
+    }
+
+    void SetRotation()
+    {
+        float angle = 180 + (Mathf.Rad2Deg * Mathf.Atan2(rb2d.velocity.y, rb2d.velocity.x));
+        transform.eulerAngles = new Vector3 (0, 0, angle);
     }
 
     void Update() {
@@ -32,7 +40,7 @@ public class Projectile : MonoBehaviour {
             }
             lifespanRemaining -= Time.deltaTime;
             if (lifespanRemaining <= 0) {
-                Destroy(this.gameObject, 0);
+                Destroy(this.gameObject);
             }
         }
     }
@@ -49,18 +57,20 @@ public class Projectile : MonoBehaviour {
             collidedWith.Add(col.gameObject.GetInstanceID());
             piercableRemaining --;
             if (piercableRemaining < 0) {
-                Destroy(this.gameObject, 0);
+                Destroy(this.gameObject);
             }
         }
 
         if (col != null && col.gameObject.CompareTag("Wall") && !passesThroughWalls)
         {
+            Instantiate(wallHitSound, transform.position, Quaternion.Euler(0, 0, 0));
             Destroy(this.gameObject);
         }
 
         // Projectiles cancel each other out
         if (col != null && col.gameObject.CompareTag("Projectile") && canceledByOtherProjectiles)
         {
+            Instantiate(wallHitSound, transform.position, Quaternion.Euler(0, 0, 0));
             Destroy(this.gameObject);
         }
     }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   name: Slime
-  cost: 15
+  cost: 0
   artwork: {fileID: 21300000, guid: 98406a25e191545d6841c24e67b20658, type: 3}
   enemyGameObject: {fileID: 6556797469826941525, guid: 82c236947c7a948fa803e6b4f2d3cded, type: 3}

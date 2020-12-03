@@ -56,6 +56,7 @@ MonoBehaviour:
   power: 5
   passesThroughWalls: 1
   canceledByOtherProjectiles: 0
+  wallHitSound: {fileID: 6457672072700027819, guid: 4a92688187a1f4b70921e09c09e68c2d, type: 3}
 --- !u!50 &806550477744015744
 Rigidbody2D:
   serializedVersion: 4
@@ -133,8 +134,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6673069, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fbb914dcaff1b490ab57160b00b22ac5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

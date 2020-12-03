@@ -61,6 +61,7 @@ MonoBehaviour:
   attackRate: 0.3
   boneValue: 5
   bone: {fileID: 7950605435990697079, guid: 59d0ce2b942a844afae9c8d7dba5320f, type: 3}
+  pillageSound: {fileID: 8885335986943193254, guid: 79cb87979cfcb4984b80c5a5da3cbf8c, type: 3}
 --- !u!61 &5937072518023257048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -265,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 7328612470385445602, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 7317103248320574996, guid: dd23c3778530645b5ac2b758198acc63, type: 3}
+      objectReference: {fileID: 665291970131664495, guid: 494b66c39bfea4462acf03059730ec9f, type: 3}
     - target: {fileID: 7328612470385445603, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
       propertyPath: m_RootOrder
       value: 1
