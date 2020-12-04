@@ -127,7 +127,7 @@ MonoBehaviour:
   lifespan: 2.5
   power: 5
   passesThroughWalls: 1
-  canceledByOtherProjectiles: 1
+  canceledByOtherProjectiles: 0
   wallHitSound: {fileID: 6457672072700027819, guid: 4a92688187a1f4b70921e09c09e68c2d, type: 3}
 --- !u!50 &1982307506714226009
 Rigidbody2D:

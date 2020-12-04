@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3641274196572969091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.98, y: 2.94, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5941573285609619145}
   m_Father: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   damagesHeroes: 1
   damagesVillains: 1
   piercable: 5
-  launchSpeed: 10
+  launchSpeed: 8
   lifespan: 0.25
   power: 8
   passesThroughWalls: 0
@@ -159,7 +159,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: b63a6ab4c7d5c4c59a5d7638f88c7389, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.71
+  m_Pitch: 2.5
   Loop: 0
   Mute: 0
   Spatialize: 0

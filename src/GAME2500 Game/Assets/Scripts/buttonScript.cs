@@ -12,6 +12,7 @@ public class buttonScript : MonoBehaviour
     public Image artworkImage;
     public TextMeshProUGUI name;
     public TextMeshProUGUI cost;
+    public TextMeshProUGUI desc;
 
     public GameObject dropper;
 
@@ -29,6 +30,7 @@ public class buttonScript : MonoBehaviour
 
         //display info form enemy
         name.text = enemy.name;
+        desc.text = enemy.desc;
         cost.text = enemy.cost.ToString();
         artworkImage.sprite = enemy.artwork;
     }

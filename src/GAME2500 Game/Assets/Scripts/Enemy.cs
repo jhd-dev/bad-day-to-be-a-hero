@@ -7,6 +7,7 @@ public class Enemy : ScriptableObject
 {
     public string name;
     public int cost;
+    public string desc;
     public Sprite artwork;
     public GameObject enemyGameObject;
 }

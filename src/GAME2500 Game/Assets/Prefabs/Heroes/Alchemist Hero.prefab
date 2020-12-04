@@ -54,9 +54,9 @@ MonoBehaviour:
   attack: {fileID: 992372533728251197}
   damageSound: {fileID: 5881438652732901404, guid: 0b70a702cdcb74ed3a220a815ed125b6, type: 3}
   deathSound: {fileID: 8402949803819346488, guid: 44d09058416e14a56894b7a12fe5c657, type: 3}
-  pillageAmount: 5
+  pillageAmount: 1
   pillageRadius: 1
-  pillageRate: 0.5
+  pillageRate: 1
   attackRadius: 12
   attackRate: 4
   boneValue: 5
@@ -266,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 7328612470385445602, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 7317103248320574996, guid: dd23c3778530645b5ac2b758198acc63, type: 3}
+      objectReference: {fileID: 9106957277648778948, guid: 649d7f16f0713433bb1ccbbe02aec99c, type: 3}
     - target: {fileID: 7328612470385445603, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
       propertyPath: m_RootOrder
       value: 1

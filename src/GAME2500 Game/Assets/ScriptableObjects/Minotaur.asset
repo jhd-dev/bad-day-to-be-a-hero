@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Minotaur
   cost: 0
+  desc: All-around
   artwork: {fileID: 21300000, guid: f6c515c93027648c7bd4ec0758fd79df, type: 3}
   enemyGameObject: {fileID: 4153559338665977211, guid: d2e0ce79c3d2c48a486e30ace55cfe71, type: 3}

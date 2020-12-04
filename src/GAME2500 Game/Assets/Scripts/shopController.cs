@@ -42,11 +42,5 @@ public class shopController : MonoBehaviour
 	void FixedUpdate()
     {
 		bones.text = boneCount.ToString();
-
-		//just to test
-		/*if (Input.GetKey("space"))
-		{
-			boneCount += 10;
-		}*/
 	}
 }

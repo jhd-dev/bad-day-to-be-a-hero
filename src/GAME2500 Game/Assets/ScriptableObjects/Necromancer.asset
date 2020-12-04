@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Necromancer
   cost: 0
+  desc: Devastating
   artwork: {fileID: 21300000, guid: 433b92d8616814ea583421856e2a7744, type: 3}
   enemyGameObject: {fileID: 3845097720097606211, guid: 6ab4f973a74d64f489a2e703f0ce3391, type: 3}
