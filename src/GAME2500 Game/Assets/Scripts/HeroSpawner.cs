@@ -18,6 +18,8 @@ public class HeroSpawner : MonoBehaviour
         public HeroSpawn[] heroSpawns;
     }
 
+    public GameObject healthBar;
+
     [SerializeField] int timeBeforeFirstWave;
     [SerializeField] int timeBetweenHeroes;
     [SerializeField] int timeBetweenWaves;
@@ -44,7 +46,14 @@ public class HeroSpawner : MonoBehaviour
             for (int h = 0; h < waves[w].heroSpawns.Length; h++){
                 int heroType = waves[w].heroSpawns[h].heroID;
                 int spawnID = waves[w].heroSpawns[h].spawnPointID;
-                existingHeroes.Add(Instantiate(heroTypes[heroType], spawnPoints[spawnID]));
+                // Health bar shiz
+                GameObject currentHero = Instantiate(heroTypes[heroType], spawnPoints[spawnID]);
+                GameObject hb = Instantiate(healthBar);
+                hb.transform.parent = currentHero.transform;
+                hb.transform.localPosition = new Vector3(1.8f, .8f, 0f);
+                hb.GetComponent<HeroHealthBarScript>().hero = currentHero;
+
+                existingHeroes.Add(currentHero);
                 yield return new WaitForSeconds(timeBetweenHeroes);
             }
 
@@ -72,4 +81,5 @@ public class HeroSpawner : MonoBehaviour
 
         return true;
     }
+
 }
