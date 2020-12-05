@@ -16,6 +16,7 @@ TagManager:
   - Projectile
   - SemiWall
   - HeroHealthBar
+  - Target
   layers:
   - Default
   - TransparentFX
