@@ -17,6 +17,7 @@ public class Treasure : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         wealth = maxWealth;
+        ChooseSprite(1f);
     }
 
     public void GetPillaged(int amountStolen) {
