@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2561601041901678918}
   - component: {fileID: 1118312464500553350}
   - component: {fileID: 7959082544950474590}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Priest Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9145192171006829361}
   - component: {fileID: 7199753933208315093}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

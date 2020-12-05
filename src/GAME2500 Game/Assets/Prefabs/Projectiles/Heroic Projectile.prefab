@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393621904362658619}
   - component: {fileID: 4028070630049666707}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 1005305853434311364}
   - component: {fileID: 2448332609482208516}
   - component: {fileID: 8121352341451438208}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Heroic Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1997225788585616376}
   - component: {fileID: 4016713425916175416}
   - component: {fileID: 1681035998822563460}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ranger Arrow
   m_TagString: Projectile
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126205752638379598}
   - component: {fileID: 325417267521151835}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
