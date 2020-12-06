@@ -7,7 +7,7 @@ public class minionHealthBarScript : MonoBehaviour
     public GameObject healthBar;
     public int maxMinionCount;
 
-    private List<GameObject> minions = new List<GameObject>();
+    public List<GameObject> minions = new List<GameObject>();
     private int minionCount;
 
 
@@ -16,10 +16,6 @@ public class minionHealthBarScript : MonoBehaviour
     {
         RefreshMinionList();
         minionCount = minions.Count;
-
-        //if minion count is greater than max just keep it at max
-        //if (minionCount > maxMinionCount)
-            //minionCount = maxMinionCount;
 
         for (int i = 0; i < minionCount; i++)
         {

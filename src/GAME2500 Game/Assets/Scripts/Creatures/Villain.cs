@@ -21,14 +21,6 @@ public class Villain : Creature {
         }
     }
 
-    private void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            soul.SetHost(this);
-        }
-    }
-
     public void BecomeHost(bool isBecoming = true) {
         isHost = isBecoming;
     }
