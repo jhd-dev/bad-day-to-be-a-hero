@@ -33,4 +33,9 @@ public class MenuController : MonoBehaviour
         click.Play();
         instructionsSection.SetActive(!instructionsSection.activeSelf);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
