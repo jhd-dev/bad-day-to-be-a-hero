@@ -57,8 +57,8 @@ MonoBehaviour:
   damageSound: {fileID: 5881438652732901404, guid: 0b70a702cdcb74ed3a220a815ed125b6, type: 3}
   deathSound: {fileID: 8402949803819346488, guid: 44d09058416e14a56894b7a12fe5c657, type: 3}
   isHost: 0
-  attackRadius: 5
-  attackRate: 5
+  attackRadius: 20
+  attackRate: 2
 --- !u!50 &3845097720097606208
 Rigidbody2D:
   serializedVersion: 4
@@ -282,7 +282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2030682626128840538
 Transform:
   m_ObjectHideFlags: 0

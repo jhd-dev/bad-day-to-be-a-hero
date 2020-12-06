@@ -51,7 +51,6 @@ public class Minion : Villain {
                 target.transform.position = new Vector3(Random.Range(p1.x, p2.x), Random.Range(p1.y, p2.y), 0f);
                 nextTargetTime = Time.time + 1f;
             }
-            AttemptAttack();
         }
         else
         {
@@ -62,7 +61,7 @@ public class Minion : Villain {
 
     protected virtual void AttemptAttack()
     {
-        if (attack != null && (GameObject.FindGameObjectsWithTag("Hero").Length > 0))
+        if (!gameObject.GetComponent<Minion>().isHost && attack != null && (GameObject.FindGameObjectsWithTag("Hero").Length > 0))
         {
             GameObject closestVillain = GetClosestVillain();
             if (Vector2.Distance(transform.position, closestVillain.transform.position) < attackRadius)

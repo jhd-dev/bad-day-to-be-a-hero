@@ -17,7 +17,7 @@ public class Villain : Creature {
             HandleHostSwapInput();
             HandleAttackInput();
         } else {
-            // AI Stuff
+            //AI stuff
         }
     }
 
@@ -38,7 +38,7 @@ public class Villain : Creature {
     }
 
     protected override void Die() {
-        SwapToNextHost();
+        SwapToHost(GameObject.Find("Boss").GetComponent<Villain>());
         soul.RemoveFromHistory(this);
         base.Die();
     }

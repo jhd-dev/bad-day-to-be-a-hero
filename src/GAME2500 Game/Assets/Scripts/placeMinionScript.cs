@@ -5,6 +5,8 @@ using UnityEngine;
 public class placeMinionScript : MonoBehaviour
 {
     [HideInInspector] public GameObject minion;
+    bool onBadGround;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +21,21 @@ public class placeMinionScript : MonoBehaviour
         gameObject.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //on click place minion and destroy gameobject
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !onBadGround)
         {
             Instantiate(minion, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    // This gameobject can only collide with "bad ground" (dirt, outdoors)
+    void OnTriggerStay2D(Collider2D collider)
+    {
+        onBadGround = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        onBadGround = false;
     }
 }
