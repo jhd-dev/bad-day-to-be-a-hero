@@ -9,7 +9,6 @@ public class Villain : Creature {
 
     public bool isHost = false; // whether this is the currently controllable enemy
     const KeyCode swapHostKey = KeyCode.E; // the key to be pressed to switch hosts
-    const KeyCode attackKey = KeyCode.Space; // the key to be pressed to attack
 
     void Update() {
         if (isHost) {
@@ -36,7 +35,7 @@ public class Villain : Creature {
     }
 
     protected virtual void HandleAttackInput() {
-        if (Input.GetKey(attackKey) && !ControlCenter.inCameraMode) {
+        if (GetShootInput() && !ControlCenter.inCameraMode) {
             Vector2 mouseScreenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
             attack.Attempt(this, mouseWorldPosition);
@@ -75,5 +74,10 @@ public class Villain : Creature {
             v => Vector2.Distance(this.transform.position, v.transform.position)
         ).ToList();
         return closest;
+    }
+
+    bool GetShootInput()
+    {
+        return (MetaControl.mouseIsShoot && Input.GetMouseButton(0)) || (!MetaControl.mouseIsShoot && Input.GetKey(KeyCode.Space));
     }
 }
