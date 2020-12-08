@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: CS2500 Game
-  defaultCursor: {fileID: 2800000, guid: 7677a1ff8ef30e8458694442f7ee9876, type: 3}
+  defaultCursor: {fileID: 2800000, guid: e5eaf9f0d1c74e84b8263c681ec59cc6, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
