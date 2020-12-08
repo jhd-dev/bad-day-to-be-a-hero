@@ -42,7 +42,7 @@ public class Hero : Creature {
 
     protected virtual void AttemptPillage() {
         float treasureDistance = Vector2.Distance(transform.position, treasure.transform.position);
-        if (treasureDistance < pillageRadius) {
+        if (treasureDistance < pillageRadius && treasureScript.wealth > 0) {
             Instantiate(pillageSound);
             treasureScript.GetPillaged(pillageAmount);
         }

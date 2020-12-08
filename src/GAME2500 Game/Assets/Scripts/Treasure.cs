@@ -11,7 +11,7 @@ public class Treasure : MonoBehaviour
     [SerializeField] Sprite medDamageSpr;
     [SerializeField] Sprite hiDamageSpr;
     SpriteRenderer spriteRenderer;
-    int wealth = 100;
+    public int wealth = 100;
 
     void Start()
     {
