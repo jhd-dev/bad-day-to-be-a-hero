@@ -18,6 +18,7 @@ public class GameStatus : MonoBehaviour
         {
             if (!gameOverBackground.activeSelf)
             {
+                Time.timeScale = 0;
                 gameOverBackground.SetActive(true);
             }
         }
