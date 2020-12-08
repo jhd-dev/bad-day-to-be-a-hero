@@ -15,7 +15,7 @@ public class MinionSwitcher : MonoBehaviour
     void Update() {
         Villain villainOfInterest = GetClosestVillainToMouse();
 
-        if (Input.GetMouseButtonDown(0) && !villainOfInterest.isHost && distanceToMouse(villainOfInterest.gameObject) < switchRadius) {
+        if (GetSwitchInput() && !villainOfInterest.isHost && distanceToMouse(villainOfInterest.gameObject) < switchRadius) {
             soul.SetHost(villainOfInterest);
         }
     }
@@ -42,5 +42,10 @@ public class MinionSwitcher : MonoBehaviour
         mousePos.z = 0;
         minPos.z = 0;
         return Vector3.Distance(minPos, mousePos);
+    }
+
+    bool GetSwitchInput()
+    {
+        return (MetaControl.mouseIsShoot && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space))) || (!MetaControl.mouseIsShoot && Input.GetMouseButtonDown(0));
     }
 }

@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject controlsSection;
     [SerializeField] GameObject instructionsSection;
+    [SerializeField] GameObject profiles;
     [SerializeField] GameObject loading;
     [SerializeField] AudioSource click;
 
@@ -22,6 +23,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void PlaySound()
+    {
+        click.Play();
+    }
+
     public void ToggleControlsSection()
     {
         click.Play();
@@ -32,6 +38,12 @@ public class MenuController : MonoBehaviour
     {
         click.Play();
         instructionsSection.SetActive(!instructionsSection.activeSelf);
+    }
+
+    public void ToggleProfiles()
+    {
+        click.Play();
+        profiles.SetActive(!profiles.activeSelf);
     }
 
     public void Quit()
