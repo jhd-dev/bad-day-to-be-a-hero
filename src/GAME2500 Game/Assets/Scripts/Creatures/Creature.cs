@@ -63,4 +63,5 @@ public class Creature : MonoBehaviour {
         Instantiate(deathSound, transform.position, Quaternion.Euler(0, 0, 0));
         Destroy(this.gameObject, 0);
     }
+
 }
