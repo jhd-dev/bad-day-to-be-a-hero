@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5881438652732901394}
   - component: {fileID: 3435033997391455662}
   m_Layer: 0
-  m_Name: Damage Sound
+  m_Name: Boss Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 20e948e511a5e4bf5a898b4bb19bfe42, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b261233ec2444c318cd426d4aef19ad, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
