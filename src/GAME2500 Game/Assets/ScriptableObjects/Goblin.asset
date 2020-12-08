@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   name: Goblin
-  cost: 10
-  desc: Fast
+  cost: 15
+  desc: Fast, Short-Range
   artwork: {fileID: 21300000, guid: 853c2caf2bdbc4dc2865a7907717f783, type: 3}
   enemyGameObject: {fileID: 6918717685944832900, guid: 1527384e68e45428a9d084aa1ce3a60c, type: 3}

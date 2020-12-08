@@ -58,8 +58,8 @@ MonoBehaviour:
   pillageRadius: 1
   pillageRate: 0.5
   attackRadius: 3
-  attackRate: 1.5
-  boneValue: 5
+  attackRate: 1
+  boneValue: 4
   bone: {fileID: 7950605435990697079, guid: 59d0ce2b942a844afae9c8d7dba5320f, type: 3}
   pillageSound: {fileID: 8885335986943193254, guid: 79cb87979cfcb4984b80c5a5da3cbf8c, type: 3}
 --- !u!61 &8015730893798296473
@@ -106,7 +106,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 2.5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

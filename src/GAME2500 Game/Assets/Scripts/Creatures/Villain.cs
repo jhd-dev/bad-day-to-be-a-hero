@@ -30,7 +30,7 @@ public class Villain : Creature {
     }
 
     protected override void Die() {
-        SwapToHost(GameObject.Find("Boss").GetComponent<Villain>());
+        if (isHost) SwapToHost(GameObject.Find("Boss").GetComponent<Villain>());
         soul.RemoveFromHistory(this);
         base.Die();
     }

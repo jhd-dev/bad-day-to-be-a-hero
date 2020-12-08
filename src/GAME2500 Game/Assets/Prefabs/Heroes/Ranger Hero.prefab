@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d050ad54b9059914e95b0f906aa39f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 25
   maxSpeed: 0
   attack: {fileID: 3654555798697049002}
   damageSound: {fileID: 5881438652732901404, guid: 0b70a702cdcb74ed3a220a815ed125b6, type: 3}
@@ -59,7 +59,7 @@ MonoBehaviour:
   pillageRate: 0.5
   attackRadius: 10
   attackRate: 0.8
-  boneValue: 8
+  boneValue: 3
   bone: {fileID: 7950605435990697079, guid: 59d0ce2b942a844afae9c8d7dba5320f, type: 3}
   pillageSound: {fileID: 8885335986943193254, guid: 79cb87979cfcb4984b80c5a5da3cbf8c, type: 3}
 --- !u!61 &1727579227139738227

@@ -16,25 +16,20 @@ public class Minion : Villain {
     private GameObject target;
 
     private float nextTargetTime;
-    private GameObject targetArea;
+    [SerializeField] GameObject targetArea;
+    GameObject myTargetArea;
 
     void Awake()
     {
-        targetArea = GameObject.FindGameObjectWithTag("Target");
-        p1 = new Vector3(targetArea.transform.position.x - (targetArea.transform.localScale.x / 2), targetArea.transform.position.y - (targetArea.transform.localScale.y / 2), 0f);
-        p2 = new Vector3(targetArea.transform.position.x + (targetArea.transform.localScale.x / 2), targetArea.transform.position.y + (targetArea.transform.localScale.y / 2), 0f);
-
+        myTargetArea = Instantiate(targetArea, transform.position, Quaternion.Euler(0, 0, 0));
         target = new GameObject("target");
-        target.transform.parent = targetArea.transform;
-        target.transform.position = new Vector3(Random.Range(p1.x, p2.x), Random.Range(p1.y, p2.y), 0f);
-        Instantiate(target);
-        nextTargetTime = 1f;
+        Instantiate(target, myTargetArea.transform);
+        SetTarget();
 
         destinationSetter = GetComponent<AIDestinationSetter>();
         path = GetComponent<AIPath>();
         destinationSetter.enabled = false;
         path.enabled = false;
-
 
         InvokeRepeating("AttemptAttack", attackRate, attackRate);
         destinationSetter.target = target.transform;
@@ -42,14 +37,15 @@ public class Minion : Villain {
 
     void FixedUpdate()
     {
+        myTargetArea.transform.position = transform.position;
+
         if (!gameObject.GetComponent<Minion>().isHost)
         {
             destinationSetter.enabled = true;
             path.enabled = true;
             if (Time.time > nextTargetTime)
             {
-                target.transform.position = new Vector3(Random.Range(p1.x, p2.x), Random.Range(p1.y, p2.y), 0f);
-                nextTargetTime = Time.time + 1f;
+                SetTarget();
             }
         }
         else
@@ -57,6 +53,15 @@ public class Minion : Villain {
             destinationSetter.enabled = false;
             path.enabled = false;
         }
+    }
+
+    void SetTarget()
+    {
+        p1 = new Vector3(myTargetArea.transform.position.x - (myTargetArea.transform.localScale.x / 2), myTargetArea.transform.position.y - (myTargetArea.transform.localScale.y / 2), 0f);
+        p2 = new Vector3(myTargetArea.transform.position.x + (myTargetArea.transform.localScale.x / 2), myTargetArea.transform.position.y + (myTargetArea.transform.localScale.y / 2), 0f);
+        target.transform.position = new Vector3(Random.Range(p1.x, p2.x), Random.Range(p1.y, p2.y), 0f);
+        nextTargetTime = Time.time + 1f;
+        nextTargetTime = 1f;
     }
 
     protected virtual void AttemptAttack()

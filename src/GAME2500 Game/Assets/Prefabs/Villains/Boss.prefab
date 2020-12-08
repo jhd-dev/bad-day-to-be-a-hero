@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4510678103604994871}
   - component: {fileID: 4510678103604994872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
@@ -83,10 +83,10 @@ GameObject:
   - component: {fileID: 4510678104400250999}
   - component: {fileID: 4510678104400250998}
   - component: {fileID: 4510678104400250997}
-  - component: {fileID: 4510678104400250996}
   - component: {fileID: -4253611567613218275}
   - component: {fileID: -6275641166055869364}
   - component: {fileID: 7894591495249417806}
+  - component: {fileID: 1739652393}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Boss
@@ -129,6 +129,8 @@ MonoBehaviour:
   damageSound: {fileID: 5881438652732901404, guid: 0b70a702cdcb74ed3a220a815ed125b6, type: 3}
   deathSound: {fileID: 8402949803819346488, guid: 44d09058416e14a56894b7a12fe5c657, type: 3}
   isHost: 0
+  attackRadius: 0
+  attackRate: 0
   boneCount: 0
 --- !u!50 &4510678104400250997
 Rigidbody2D:
@@ -151,32 +153,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &4510678104400250996
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4510678104400250995}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.14}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.7}
-  m_EdgeRadius: 0
 --- !u!114 &-4253611567613218275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +208,7 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 0
   targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
+  maxAcceleration: 100
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 1.2
@@ -255,6 +231,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!70 &1739652393
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510678104400250995}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &4510678104572672039
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,9 +317,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: e4a3335cda44e4dbda7d9897b94d1667, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -350,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7328612470385445602, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
       propertyPath: cooldown
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7328612470385445602, guid: 6fd99c8cdb375c14ab47327243cbbd56, type: 3}
       propertyPath: projectile

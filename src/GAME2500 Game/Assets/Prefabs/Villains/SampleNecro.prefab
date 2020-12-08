@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3845097720097606210}
   - component: {fileID: 3681596885389970448}
   - component: {fileID: 3845097720097606208}
-  - component: {fileID: 3845097720097606271}
   - component: {fileID: -5359594306433037726}
   - component: {fileID: -4184519948829229000}
   - component: {fileID: -7133183667354124378}
   - component: {fileID: -363072519333278017}
+  - component: {fileID: 6745724538204772382}
   m_Layer: 9
   m_Name: SampleNecro
   m_TagString: Minion
@@ -60,6 +60,7 @@ MonoBehaviour:
   isHost: 0
   attackRadius: 20
   attackRate: 2
+  targetArea: {fileID: 7425852817539232584, guid: dda6f433def5545d2b55ed2d37be2248, type: 3}
 --- !u!50 &3845097720097606208
 Rigidbody2D:
   serializedVersion: 4
@@ -81,32 +82,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3845097720097606271
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3845097720097606211}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &-5359594306433037726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +256,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!70 &6745724538204772382
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845097720097606211}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &3845097721325884235
 GameObject:
   m_ObjectHideFlags: 0
