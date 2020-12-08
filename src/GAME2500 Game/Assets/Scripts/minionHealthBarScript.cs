@@ -19,7 +19,8 @@ public class minionHealthBarScript : MonoBehaviour
 
         for (int i = 0; i < minionCount; i++)
         {
-            makeHealthBar(minions[i], i);
+            if (!(minions[i].gameObject.tag == "Boss"))
+                makeHealthBar(minions[i], i);
         }
     }
 
@@ -49,7 +50,8 @@ public class minionHealthBarScript : MonoBehaviour
                 }
 
                 for (int i = 0; i < minionCount; i++) {
-                    makeHealthBar(minions[i], i);
+                    if(!(minions[i].gameObject.tag == "Boss"))
+                        makeHealthBar(minions[i], i);
                 }
             }
         }
