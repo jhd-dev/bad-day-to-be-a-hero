@@ -55,7 +55,7 @@ MonoBehaviour:
   maxHealth: 5
   maxSpeed: 3
   attack: {fileID: 5830189233170196085}
-  damageSound: {fileID: 5881438652732901404, guid: 0b70a702cdcb74ed3a220a815ed125b6, type: 3}
+  damageSound: {fileID: 5881438652732901404, guid: 13d671f42be2748b4add7b31ac211a0e, type: 3}
   deathSound: {fileID: 8402949803819346488, guid: 44d09058416e14a56894b7a12fe5c657, type: 3}
   isHost: 0
   attackRadius: 20
