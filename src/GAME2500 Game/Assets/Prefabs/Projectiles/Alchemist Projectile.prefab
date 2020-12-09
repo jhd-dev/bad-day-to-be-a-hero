@@ -53,7 +53,7 @@ MonoBehaviour:
   piercable: 1
   launchSpeed: 3
   lifespan: 20
-  power: 30
+  power: 20
   passesThroughWalls: 1
   canceledByOtherProjectiles: 0
   wallHitSound: {fileID: 6457672072700027819, guid: 4a92688187a1f4b70921e09c09e68c2d, type: 3}

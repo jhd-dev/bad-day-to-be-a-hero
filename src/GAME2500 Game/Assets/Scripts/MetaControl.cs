@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MetaControl : MonoBehaviour
 {
+    [SerializeField] Texture2D cursorTexture;
     public static bool mouseIsShoot = false;
 
     public void ToggleMouseShoot()

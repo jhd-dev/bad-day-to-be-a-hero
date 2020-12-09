@@ -58,7 +58,7 @@ public class OverheadControl : MonoBehaviour
         {
             cam.orthographicSize += (goalOrthoSize - cam.orthographicSize) / (8 / (zoomSpeed * Time.deltaTime));
             yield return new WaitForEndOfFrame();
-            if (!reachedGoalZoom) reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalOrthoSize) < 0.1f;
+            if (!reachedGoalZoom) reachedGoalZoom = Mathf.Abs(cam.orthographicSize - goalOrthoSize) < 0.3f;
         }
 
         inZoomSequence = false;

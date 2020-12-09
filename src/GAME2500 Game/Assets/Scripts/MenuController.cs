@@ -37,6 +37,7 @@ public class MenuController : MonoBehaviour
     public void ToggleInstructionsSection()
     {
         click.Play();
+        if (profiles.activeSelf) { profiles.SetActive(false); }
         instructionsSection.SetActive(!instructionsSection.activeSelf);
     }
 
